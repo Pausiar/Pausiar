@@ -1,7 +1,7 @@
 ## Hi there 👋
 
 # 💫 About Me:
-Im currently workng on FiveM scripts<br>
+Im currently workng on FiveM scripts, webs and apps<br>
 
 
 ## 🌐 Socials:
