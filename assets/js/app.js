@@ -170,6 +170,252 @@
             github: 'https://github.com/Pausiar/aura-flow',
             live: 'https://pausiar.github.io/aura-flow/',
         },
+        {
+            title: 'Booking Creator',
+            description:
+                'Booking management system for businesses. Companies set up their own profile, services, and accept reservations with payment integration.',
+            tech: ['HTML', 'CSS', 'JavaScript'],
+            category: 'web',
+            icon: 'fas fa-calendar-check',
+            github: 'https://github.com/Pausiar/proyecto-final',
+            stars: 1,
+        },
+        {
+            title: 'Social Media Tools',
+            description:
+                'Set of tools to boost social media channels with automation utilities for content scheduling and engagement.',
+            tech: ['HTML', 'JavaScript', 'Automation'],
+            category: 'tools',
+            icon: 'fas fa-share-nodes',
+            github: 'https://github.com/Pausiar/social-media-tools',
+        },
+        {
+            title: 'TikTok Boost',
+            description:
+                'Automated TikTok growth tool to help boost visibility and engagement on the TikTok platform.',
+            tech: ['HTML', 'JavaScript', 'Automation'],
+            category: 'tools',
+            icon: 'fab fa-tiktok',
+            github: 'https://github.com/Pausiar/tiktok_boost',
+        },
+        {
+            title: 'CS Gambling Site',
+            description:
+                'Counter-Strike themed gambling/gaming site with custom UI and interactive design.',
+            tech: ['HTML', 'CSS', 'JavaScript'],
+            category: 'web',
+            icon: 'fas fa-dice',
+            github: 'https://github.com/Pausiar/cs_gamglinb_site',
+        },
+        {
+            title: 'Typo Mod',
+            description:
+                'Styled text generator with small caps conversion, emoji selector, bracket styles, and real-time preview.',
+            tech: ['HTML', 'CSS', 'JavaScript'],
+            category: 'tools',
+            icon: 'fas fa-font',
+            github: 'https://github.com/Pausiar/Typo_Mod',
+            live: 'https://pausiar.github.io/Typo_Mod',
+        },
+        {
+            title: 'Check Space',
+            description:
+                'File storage analyzer that quickly identifies which files are consuming the most disk space.',
+            tech: ['JavaScript', 'Node.js', 'CLI'],
+            category: 'tools',
+            icon: 'fas fa-hard-drive',
+            github: 'https://github.com/Pausiar/check-space',
+        },
+        {
+            title: 'SEO Analyzer',
+            description:
+                'SEO analysis tool that inspects web pages and provides actionable insights to improve search engine rankings.',
+            tech: ['JavaScript', 'SEO', 'Web'],
+            category: 'tools',
+            icon: 'fas fa-magnifying-glass-chart',
+            github: 'https://github.com/Pausiar/SEO-Analyzer',
+        },
+        {
+            title: 'Google MCPs',
+            description:
+                'Google MCP (Model Context Protocol) integrations for Google Search Console and Google AdSense.',
+            tech: ['Python', 'MCP', 'AI'],
+            category: 'tools',
+            icon: 'fab fa-google',
+            github: 'https://github.com/Pausiar/Google-MCPs',
+        },
+        {
+            title: 'FiveM Anti-Tank',
+            description:
+                'FiveM script that prevents players from dying to headshots, balancing combat in roleplay servers.',
+            tech: ['Lua', 'FiveM', 'Script'],
+            category: 'gaming',
+            icon: 'fas fa-shield-halved',
+            github: 'https://github.com/Pausiar/ps_antitank',
+            stars: 1,
+        },
+        {
+            title: 'ox_target Reskin',
+            description:
+                'Custom UI redesign for the ox_target FiveM resource with modern styling and smooth interactions.',
+            tech: ['Lua', 'HTML/CSS', 'FiveM'],
+            category: 'gaming',
+            icon: 'fas fa-crosshairs',
+            github: 'https://github.com/Pausiar/ox_target-reskin',
+        },
+        {
+            title: 'Anti-VDM Redesign',
+            description:
+                'UI redesign for the nova_antiVDM resource in FiveM servers with improved Spanish localization.',
+            tech: ['Lua', 'HTML/CSS', 'FiveM'],
+            category: 'gaming',
+            icon: 'fas fa-car-burst',
+            github: 'https://github.com/Pausiar/nova_antiVDM-redesign-ESP-',
+        },
+        {
+            title: 'okokReports Redesign',
+            description:
+                'Complete UI redesign for the okokReports FiveM resource with a cleaner, more modern interface.',
+            tech: ['Lua', 'HTML/CSS', 'FiveM'],
+            category: 'gaming',
+            icon: 'fas fa-flag',
+            github: 'https://github.com/Pausiar/okokReports-redesign',
+        },
+        {
+            title: 'FiveM Maps',
+            description:
+                'Custom map additions and modifications for FiveM roleplay servers built with mapping tools.',
+            tech: ['Lua', 'FiveM', 'Mapping'],
+            category: 'gaming',
+            icon: 'fas fa-map-location-dot',
+            github: 'https://github.com/Pausiar/mapeados',
+        },
+        {
+            title: 'Scoreboard Reskin',
+            description:
+                'UI reskin for the omes_scoreboard FiveM resource with a redesigned player list and server stats.',
+            tech: ['Lua', 'HTML/CSS', 'FiveM'],
+            category: 'gaming',
+            icon: 'fas fa-table-list',
+            github: 'https://github.com/Pausiar/omes_scoreboard-reskin',
+        },
+        {
+            title: 'Announces Reskin',
+            description:
+                'Custom UI redesign for the lux-announces FiveM resource with smooth animations and modern look.',
+            tech: ['Lua', 'CSS', 'FiveM'],
+            category: 'gaming',
+            icon: 'fas fa-bullhorn',
+            github: 'https://github.com/Pausiar/lux-announces-reskin',
+        },
+        {
+            title: 'Multijob Reskin',
+            description:
+                'UI redesign for the ec-multijob FiveM resource, improving the job selection and management interface.',
+            tech: ['Lua', 'HTML/CSS', 'FiveM'],
+            category: 'gaming',
+            icon: 'fas fa-briefcase',
+            github: 'https://github.com/Pausiar/ec-multijob-reskin',
+        },
+        {
+            title: 'FiveM Robbery',
+            description:
+                'Ammu-Nation robbery script for FiveM servers with configurable settings and reward system.',
+            tech: ['Lua', 'FiveM', 'Script'],
+            category: 'gaming',
+            icon: 'fas fa-gun',
+            github: 'https://github.com/Pausiar/ps_ammurobery',
+        },
+        {
+            title: 'FiveM Suelo',
+            description:
+                'Ground-based interaction script for FiveM servers adding terrain crawling and prone mechanics.',
+            tech: ['Lua', 'FiveM', 'Script'],
+            category: 'gaming',
+            icon: 'fas fa-person-falling',
+            github: 'https://github.com/Pausiar/ps_suelo',
+        },
+        {
+            title: 'FiveM No Radio',
+            description:
+                'Script that disables the radio UI in FiveM servers for a cleaner roleplay experience.',
+            tech: ['Lua', 'FiveM', 'Script'],
+            category: 'gaming',
+            icon: 'fas fa-radio',
+            github: 'https://github.com/Pausiar/ps_noradio',
+        },
+        {
+            title: 'Appearance Reskin',
+            description:
+                'UI reskin for the illenium-appearance FiveM resource with a modern character customization interface.',
+            tech: ['Lua', 'HTML/CSS', 'FiveM'],
+            category: 'gaming',
+            icon: 'fas fa-user-pen',
+            github: 'https://github.com/Pausiar/illenium-appearance-reskin',
+        },
+        {
+            title: 'FiveM Car Crash',
+            description:
+                'Realistic car crash script for FiveM that triggers injury effects and emergency services on high-impact collisions.',
+            tech: ['Lua', 'FiveM', 'Script'],
+            category: 'gaming',
+            icon: 'fas fa-car-crash',
+            github: 'https://github.com/Pausiar/ps_carcrash',
+        },
+        {
+            title: 'FiveM Suicide',
+            description:
+                'Roleplay suicide/respawn script for FiveM servers with configurable animations and respawn options.',
+            tech: ['Lua', 'FiveM', 'Script'],
+            category: 'gaming',
+            icon: 'fas fa-skull',
+            github: 'https://github.com/Pausiar/ps_suicide',
+        },
+        {
+            title: 'Arkanoid',
+            description:
+                'Classic Arkanoid brick-breaker game built with C# and Unity, featuring multiple levels and power-ups.',
+            tech: ['C#', 'Unity', 'Game Dev'],
+            category: 'gaming',
+            icon: 'fas fa-gamepad',
+            github: 'https://github.com/Pausiar/Arkanoid',
+        },
+        {
+            title: 'Amplya',
+            description:
+                'Android application with a landing page and APK distribution. A mobile utility app with modern UI.',
+            tech: ['Java', 'Android', 'HTML'],
+            category: 'mobile',
+            icon: 'fas fa-mobile-screen',
+            github: 'https://github.com/Pausiar/Amplya-In-Out',
+        },
+        {
+            title: 'Real-Time Translate',
+            description:
+                'Android app for real-time speech translation from Polish to Spanish using on-device processing.',
+            tech: ['Kotlin', 'Android', 'ML'],
+            category: 'mobile',
+            icon: 'fas fa-language',
+            github: 'https://github.com/Pausiar/realtime-translate',
+        },
+        {
+            title: 'Contador Vidas',
+            description:
+                'Android life counter app for board games and card games with customizable player tracking.',
+            tech: ['Kotlin', 'Android', 'Mobile'],
+            category: 'mobile',
+            icon: 'fas fa-heart',
+            github: 'https://github.com/Pausiar/Android-ContadorVidas',
+        },
+        {
+            title: 'NotesDeVeu',
+            description:
+                'Android notes application with voice recording support for creating and organizing audio notes.',
+            tech: ['Java', 'Android', 'Mobile'],
+            category: 'mobile',
+            icon: 'fas fa-microphone',
+            github: 'https://github.com/Pausiar/Android-NotesDeVeu',
+        },
     ];
 
     /* ───────────────────────────────────────────────────
