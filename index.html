@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pau Silvestre Arnandis | Full-Stack Developer</title>
+    <meta name="description" content="Portfolio de Pau Silvestre Arnandis — Full-Stack Developer especializado en desarrollo web, inteligencia artificial, gaming y aplicaciones móviles.">
+    <meta name="keywords" content="Portfolio, Full-Stack Developer, Web Development, Python, Java, JavaScript, FiveM">
+    <meta property="og:title" content="Pau Silvestre Arnandis | Full-Stack Developer">
+    <meta property="og:description" content="Portfolio profesional — Desarrollo web, IA, gaming y más.">
+    <meta property="og:type" content="website">
+
+    <!-- Preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Devicon for language logos -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/devicon.min.css">
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+    <!-- ═══════════════════ SAKURA PARTICLES CONTAINER ═══════════════════ -->
+    <div id="sakura-container"></div>
+
+    <!-- ═══════════════════ LOADER ═══════════════════ -->
+    <div id="loader">
+        <div class="loader-content">
+            <div class="loader-logo">
+                <span class="loader-letter" style="--i:0">P</span>
+                <span class="loader-letter" style="--i:1">S</span>
+                <span class="loader-letter" style="--i:2">A</span>
+            </div>
+            <div class="loader-bar">
+                <div class="loader-bar-fill"></div>
+            </div>
+            <p class="loader-text">Initializing experience&hellip;</p>
+        </div>
+    </div>
+
+    <!-- ═══════════════════ CUSTOM CURSOR ═══════════════════ -->
+    <div class="cursor-dot" id="cursor-dot"></div>
+    <div class="cursor-outline" id="cursor-outline"></div>
+
+    <!-- ═══════════════════ NOISE OVERLAY ═══════════════════ -->
+    <div class="noise-overlay"></div>
+
+    <!-- ═══════════════════ FLOATING ORBS ═══════════════════ -->
+    <div class="floating-orbs">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+        <div class="orb orb-4"></div>
+    </div>
+
+    <!-- ═══════════════════ THREE.JS CANVAS ═══════════════════ -->
+    <canvas id="three-canvas"></canvas>
+
+    <!-- ═══════════════════ NAVIGATION ═══════════════════ -->
+    <nav class="navbar" id="navbar">
+        <a href="#hero" class="nav-logo">
+            <span class="logo-bracket">&lt;</span>
+            <span class="logo-text">PSA</span>
+            <span class="logo-bracket">/&gt;</span>
+        </a>
+        <div class="nav-links" id="nav-links">
+            <a href="#about" class="nav-link">About</a>
+            <a href="#keyboard" class="nav-link">Skills</a>
+            <a href="#projects" class="nav-link">Projects</a>
+            <a href="#contact" class="nav-link">Contact</a>
+        </div>
+        <a href="https://github.com/Pausiar" target="_blank" rel="noopener" class="nav-github" aria-label="GitHub">
+            <i class="fab fa-github"></i>
+        </a>
+        <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+
+    <!-- ═══════════════════ MOBILE MENU ═══════════════════ -->
+    <div class="mobile-menu" id="mobile-menu">
+        <a href="#about" class="mobile-link">About</a>
+        <a href="#keyboard" class="mobile-link">Skills</a>
+        <a href="#projects" class="mobile-link">Projects</a>
+        <a href="#contact" class="mobile-link">Contact</a>
+    </div>
+
+    <!-- ═══════════════════ HERO SECTION ═══════════════════ -->
+    <section id="hero" class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">
+                <span class="badge-dot"></span>
+                Available for work
+            </div>
+            <h1 class="hero-title">
+                <span class="hero-line">
+                    <span class="hero-word" data-scroll>Pau</span>
+                    <span class="hero-word" data-scroll>Silvestre</span>
+                </span>
+                <span class="hero-line">
+                    <span class="hero-word accent" data-scroll>Arnandis</span>
+                </span>
+            </h1>
+            <div class="hero-subtitle">
+                <span class="subtitle-line"></span>
+                <p id="typewriter">Full-Stack Developer</p>
+            </div>
+            <p class="hero-description">
+                Crafting digital experiences through code — from web apps 
+                and AI systems to game mods and mobile applications.
+            </p>
+            <div class="hero-cta">
+                <a href="#projects" class="btn btn-primary magnetic">
+                    <span>View Projects</span>
+                    <i class="fas fa-arrow-down"></i>
+                </a>
+                <a href="#contact" class="btn btn-outline magnetic">
+                    <span>Get in Touch</span>
+                </a>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="scroll-mouse">
+                <div class="scroll-wheel"></div>
+            </div>
+            <span>Scroll</span>
+        </div>
+    </section>
+
+    <!-- ═══════════════════ MARQUEE DIVIDER ═══════════════════ -->
+    <div class="marquee-section">
+        <div class="marquee-track">
+            <div class="marquee-content">
+                <span>FULL-STACK</span><span class="marquee-dot">✦</span>
+                <span>DEVELOPER</span><span class="marquee-dot">✦</span>
+                <span>CREATIVE</span><span class="marquee-dot">✦</span>
+                <span>CODER</span><span class="marquee-dot">✦</span>
+                <span>FiveM</span><span class="marquee-dot">✦</span>
+                <span>AI</span><span class="marquee-dot">✦</span>
+                <span>PYTHON</span><span class="marquee-dot">✦</span>
+                <span>JAVA</span><span class="marquee-dot">✦</span>
+                <span>WEB</span><span class="marquee-dot">✦</span>
+                <span>MOBILE</span><span class="marquee-dot">✦</span>
+                <span>FULL-STACK</span><span class="marquee-dot">✦</span>
+                <span>DEVELOPER</span><span class="marquee-dot">✦</span>
+                <span>CREATIVE</span><span class="marquee-dot">✦</span>
+                <span>CODER</span><span class="marquee-dot">✦</span>
+                <span>FiveM</span><span class="marquee-dot">✦</span>
+                <span>AI</span><span class="marquee-dot">✦</span>
+                <span>PYTHON</span><span class="marquee-dot">✦</span>
+                <span>JAVA</span><span class="marquee-dot">✦</span>
+                <span>WEB</span><span class="marquee-dot">✦</span>
+                <span>MOBILE</span><span class="marquee-dot">✦</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══════════════════ ABOUT SECTION ═══════════════════ -->
+    <section id="about" class="about section">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-number">01</span>
+                <h2 class="section-title" data-reveal>About Me</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="about-grid">
+                <div class="about-text" data-reveal>
+                    <p>
+                        Hey! I'm <strong>Pau Silvestre Arnandis</strong>, a passionate 
+                        Full-Stack Developer from Spain. I love building things that live on 
+                        the internet and beyond — from websites and web apps to AI assistants, 
+                        game modifications, and mobile applications.
+                    </p>
+                    <p>
+                        My journey spans diverse domains: developing <strong>FiveM</strong> 
+                        server scripts and custom UIs, creating <strong>Python</strong> automation 
+                        tools, building <strong>Android</strong> applications, and working with 
+                        <strong>Spring Boot</strong> backends. I thrive on the challenge of 
+                        learning new technologies and turning ideas into reality.
+                    </p>
+                    <p>
+                        When I'm not coding, you can find me creating content on 
+                        <a href="https://www.youtube.com/@Pausiar" target="_blank" rel="noopener">YouTube</a> 
+                        and <a href="https://www.tiktok.com/@pausiarog" target="_blank" rel="noopener">TikTok</a>.
+                    </p>
+                </div>
+                <div class="about-stats">
+                    <div class="stat-card" data-reveal>
+                        <span class="stat-number" data-count="58">0</span>
+                        <span class="stat-label">Repositories</span>
+                    </div>
+                    <div class="stat-card" data-reveal>
+                        <span class="stat-number" data-count="10">0</span>
+                        <span class="stat-label">Languages</span>
+                    </div>
+                    <div class="stat-card" data-reveal>
+                        <span class="stat-number" data-count="1841">0</span>
+                        <span class="stat-label">Contributions</span>
+                    </div>
+                    <div class="stat-card" data-reveal>
+                        <span class="stat-number" data-count="5">0</span>
+                        <span class="stat-label">Live Projects</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════ 3D KEYBOARD SECTION ═══════════════════ -->
+    <section id="keyboard" class="keyboard-section section">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-number">02</span>
+                <h2 class="section-title" data-reveal>Tech Stack</h2>
+                <div class="section-line"></div>
+            </div>
+            <p class="keyboard-subtitle" data-reveal>Press or hover the keys to explore my skills</p>
+
+            <div class="keyboard-wrapper" data-reveal>
+                <div class="keyboard-scene">
+                    <div class="keyboard-body">
+                        <!-- Row 1: Top row -->
+                        <div class="kb-row">
+                            <div class="key" data-skill="lua" data-color="#2C2D72">
+                                <div class="key-top">
+                                    <i class="devicon-lua-plain"></i>
+                                    <span class="key-label">Lua</span>
+                                </div>
+                                <div class="key-front"></div>
+                                <div class="key-right"></div>
+                            </div>
+                            <div class="key" data-skill="java" data-color="#ED8B00">
+                                <div class="key-top">
+                                    <i class="devicon-java-plain"></i>
+                                    <span class="key-label">Java</span>
+                                </div>
+                                <div class="key-front"></div>
+                                <div class="key-right"></div>
+                            </div>
+                            <div class="key" data-skill="python" data-color="#3776AB">
+                                <div class="key-top">
+                                    <i class="devicon-python-plain"></i>
+                                    <span class="key-label">Python</span>
+                                </div>
+                                <div class="key-front"></div>
+                                <div class="key-right"></div>
+                            </div>
+                            <div class="key" data-skill="javascript" data-color="#F7DF1E">
+                                <div class="key-top">
+                                    <i class="devicon-javascript-plain"></i>
+                                    <span class="key-label">JS</span>
+                                </div>
+                                <div class="key-front"></div>
+                                <div class="key-right"></div>
+                            </div>
+                            <div class="key" data-skill="html5" data-color="#E34F26">
+                                <div class="key-top">
+                                    <i class="devicon-html5-plain"></i>
+                                    <span class="key-label">HTML</span>
+                                </div>
+                                <div class="key-front"></div>
+                                <div class="key-right"></div>
+                            </div>
+                        </div>
+                        <!-- Row 2 -->
+                        <div class="kb-row">
+                            <div class="key" data-skill="css3" data-color="#1572B6">
+                                <div class="key-top">
+                                    <i class="devicon-css3-plain"></i>
+                                    <span class="key-label">CSS</span>
+                                </div>
+                                <div class="key-front"></div>
+                                <div class="key-right"></div>
+                            </div>
+                            <div class="key" data-skill="csharp" data-color="#68217A">
+                                <div class="key-top">
+                                    <i class="devicon-csharp-plain"></i>
+                                    <span class="key-label">C#</span>
+                                </div>
+                                <div class="key-front"></div>
+                                <div class="key-right"></div>
+                            </div>
+                            <div class="key" data-skill="kotlin" data-color="#7F52FF">
+                                <div class="key-top">
+                                    <i class="devicon-kotlin-plain"></i>
+                                    <span class="key-label">Kotlin</span>
+                                </div>
+                                <div class="key-front"></div>
+                                <div class="key-right"></div>
+                            </div>
+                            <div class="key" data-skill="spring" data-color="#6DB33F">
+                                <div class="key-top">
+                                    <i class="devicon-spring-plain"></i>
+                                    <span class="key-label">Spring</span>
+                                </div>
+                                <div class="key-front"></div>
+                                <div class="key-right"></div>
+                            </div>
+                            <div class="key" data-skill="react" data-color="#61DAFB">
+                                <div class="key-top">
+                                    <i class="devicon-react-original"></i>
+                                    <span class="key-label">React</span>
+                                </div>
+                                <div class="key-front"></div>
+                                <div class="key-right"></div>
+                            </div>
+                        </div>
+                        <!-- Row 3 -->
+                        <div class="kb-row">
+                            <div class="key" data-skill="nodejs" data-color="#339933">
+                                <div class="key-top">
+                                    <i class="devicon-nodejs-plain"></i>
+                                    <span class="key-label">Node</span>
+                                </div>
+                                <div class="key-front"></div>
+                                <div class="key-right"></div>
+                            </div>
+                            <div class="key" data-skill="docker" data-color="#2496ED">
+                                <div class="key-top">
+                                    <i class="devicon-docker-plain"></i>
+                                    <span class="key-label">Docker</span>
+                                </div>
+                                <div class="key-front"></div>
+                                <div class="key-right"></div>
+                            </div>
+                            <div class="key" data-skill="git" data-color="#F05032">
+                                <div class="key-top">
+                                    <i class="devicon-git-plain"></i>
+                                    <span class="key-label">Git</span>
+                                </div>
+                                <div class="key-front"></div>
+                                <div class="key-right"></div>
+                            </div>
+                            <div class="key" data-skill="android" data-color="#3DDC84">
+                                <div class="key-top">
+                                    <i class="devicon-android-plain"></i>
+                                    <span class="key-label">Android</span>
+                                </div>
+                                <div class="key-front"></div>
+                                <div class="key-right"></div>
+                            </div>
+                            <div class="key" data-skill="linux" data-color="#FCC624">
+                                <div class="key-top">
+                                    <i class="devicon-linux-plain"></i>
+                                    <span class="key-label">Linux</span>
+                                </div>
+                                <div class="key-front"></div>
+                                <div class="key-right"></div>
+                            </div>
+                        </div>
+                        <!-- Spacebar row -->
+                        <div class="kb-row">
+                            <div class="key key-space" data-skill="fivem" data-color="#F40552">
+                                <div class="key-top">
+                                    <i class="fas fa-gamepad"></i>
+                                    <span class="key-label">FiveM &amp; Game Modding</span>
+                                </div>
+                                <div class="key-front"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Skill info panel -->
+                <div class="skill-info-panel" id="skill-info-panel">
+                    <div class="skill-info-icon" id="skill-info-icon"></div>
+                    <h3 class="skill-info-title" id="skill-info-title">Hover a key</h3>
+                    <p class="skill-info-desc" id="skill-info-desc">Explore my tech stack by hovering or clicking the keys on the keyboard above.</p>
+                    <div class="skill-info-bar">
+                        <div class="skill-info-bar-fill" id="skill-info-bar-fill"></div>
+                    </div>
+                    <span class="skill-info-level" id="skill-info-level"></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════ MARQUEE DIVIDER 2 ═══════════════════ -->
+    <div class="marquee-section marquee-reverse">
+        <div class="marquee-track">
+            <div class="marquee-content marquee-content-reverse">
+                <span>PROJECTS</span><span class="marquee-dot">◆</span>
+                <span>PORTFOLIO</span><span class="marquee-dot">◆</span>
+                <span>OPEN SOURCE</span><span class="marquee-dot">◆</span>
+                <span>GITHUB</span><span class="marquee-dot">◆</span>
+                <span>INNOVATION</span><span class="marquee-dot">◆</span>
+                <span>CODE</span><span class="marquee-dot">◆</span>
+                <span>PROJECTS</span><span class="marquee-dot">◆</span>
+                <span>PORTFOLIO</span><span class="marquee-dot">◆</span>
+                <span>OPEN SOURCE</span><span class="marquee-dot">◆</span>
+                <span>GITHUB</span><span class="marquee-dot">◆</span>
+                <span>INNOVATION</span><span class="marquee-dot">◆</span>
+                <span>CODE</span><span class="marquee-dot">◆</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══════════════════ PROJECTS SECTION ═══════════════════ -->
+    <section id="projects" class="projects section">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-number">03</span>
+                <h2 class="section-title" data-reveal>Featured Projects</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="project-filters" data-reveal>
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="web">Web</button>
+                <button class="filter-btn" data-filter="tools">AI &amp; Tools</button>
+                <button class="filter-btn" data-filter="gaming">Gaming</button>
+                <button class="filter-btn" data-filter="mobile">Mobile</button>
+            </div>
+            <div class="projects-grid" id="projects-grid">
+                <!-- Dynamically injected by app.js -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════ CONTACT SECTION ═══════════════════ -->
+    <section id="contact" class="contact section">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-number">04</span>
+                <h2 class="section-title" data-reveal>Get in Touch</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="contact-content">
+                <h3 class="contact-big-text">Let's work<br><span class="accent-text">together.</span></h3>
+                <p class="contact-text">
+                    I'm always open to new opportunities, collaborations, 
+                    or simply a friendly chat about tech. Feel free to reach out!
+                </p>
+                <a href="mailto:pausilvest@gmail.com" class="btn btn-primary btn-large magnetic">
+                    <span>Say Hello</span>
+                    <i class="fas fa-paper-plane"></i>
+                </a>
+                <div class="social-links">
+                    <a href="https://github.com/Pausiar" target="_blank" rel="noopener" class="social-link magnetic" aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.youtube.com/@Pausiar" target="_blank" rel="noopener" class="social-link magnetic" aria-label="YouTube">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                    <a href="https://www.tiktok.com/@pausiarog" target="_blank" rel="noopener" class="social-link magnetic" aria-label="TikTok">
+                        <i class="fab fa-tiktok"></i>
+                    </a>
+                    <a href="mailto:pausilvest@gmail.com" class="social-link magnetic" aria-label="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════ FOOTER ═══════════════════ -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>Designed &amp; Built by <strong>Pau Silvestre Arnandis</strong></p>
+            <p class="footer-year">&copy; 2026</p>
+        </div>
+    </footer>
+
+    <!-- ═══════════════════ PREVIEW MODAL ═══════════════════ -->
+    <div class="preview-modal" id="preview-modal">
+        <div class="preview-header">
+            <div class="preview-dots">
+                <span></span><span></span><span></span>
+            </div>
+            <span class="preview-url" id="preview-url"></span>
+            <div class="preview-controls">
+                <button class="preview-size" data-width="375" title="Mobile"><i class="fas fa-mobile-alt"></i></button>
+                <button class="preview-size" data-width="768" title="Tablet"><i class="fas fa-tablet-alt"></i></button>
+                <button class="preview-size active" data-width="100%" title="Desktop"><i class="fas fa-desktop"></i></button>
+                <button class="preview-close" id="preview-close"><i class="fas fa-times"></i></button>
+            </div>
+        </div>
+        <div class="preview-body">
+            <iframe id="preview-iframe" src="" frameborder="0" loading="lazy" sandbox="allow-scripts allow-same-origin"></iframe>
+        </div>
+    </div>
+
+    <!-- ═══════════════════ SCRIPTS ═══════════════════ -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="assets/js/three-scene.js"></script>
+    <script src="assets/js/app.js"></script>
+</body>
+</html>
