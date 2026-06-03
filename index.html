@@ -3,495 +3,176 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pau Silvestre Arnandis | Full-Stack Developer</title>
-    <meta name="description" content="Portfolio de Pau Silvestre Arnandis — Full-Stack Developer especializado en desarrollo web, inteligencia artificial, gaming y aplicaciones móviles.">
-    <meta name="keywords" content="Portfolio, Full-Stack Developer, Web Development, Python, Java, JavaScript, FiveM">
-    <meta property="og:title" content="Pau Silvestre Arnandis | Full-Stack Developer">
-    <meta property="og:description" content="Portfolio profesional — Desarrollo web, IA, gaming y más.">
+    <title>Pausiar | Portfolio de desarrollo web, Android e IA</title>
+    <meta name="description" content="Portfolio de Pausiar: desarrollo web, apps Android, IA aplicada, automatizaciones y proyectos open-source.">
+    <meta name="keywords" content="Pausiar, portfolio, desarrollo web, Android, IA, automatizaciones, open source, Kotlin, JavaScript, Python, GitHub Pages">
+    <meta name="author" content="Pausiar">
+    <meta name="theme-color" content="#070b18">
+    <meta property="og:title" content="Pausiar | Desarrollo web, Android e IA">
+    <meta property="og:description" content="Portfolio técnico de Pausiar con proyectos de IA aplicada, apps Android, automatizaciones y herramientas web.">
     <meta property="og:type" content="website">
-
-    <!-- Preconnect -->
+    <meta property="og:url" content="https://pausiar.github.io/">
+    <meta property="og:image" content="https://pausiar.github.io/assets/og-card.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Pausiar | Portfolio de desarrollo web, Android e IA">
+    <meta name="twitter:description" content="Webs, apps Android, IA aplicada, automatizaciones y proyectos open-source.">
+    <link rel="canonical" href="https://pausiar.github.io/">
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
-    <!-- Devicon for language logos -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/devicon.min.css">
-
-    <!-- Main CSS -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-
-    <!-- ═══════════════════ SAKURA PARTICLES CONTAINER ═══════════════════ -->
-    <div id="sakura-container"></div>
-
-    <!-- ═══════════════════ LOADER ═══════════════════ -->
-    <div id="loader">
-        <div class="loader-content">
-            <div class="loader-logo">
-                <span class="loader-letter" style="--i:0">P</span>
-                <span class="loader-letter" style="--i:1">S</span>
-                <span class="loader-letter" style="--i:2">A</span>
-            </div>
-            <div class="loader-bar">
-                <div class="loader-bar-fill"></div>
-            </div>
-            <p class="loader-text">Initializing experience&hellip;</p>
-        </div>
+    <div class="site-bg" aria-hidden="true">
+        <span class="aurora aurora-one"></span>
+        <span class="aurora aurora-two"></span>
+        <span class="grid-overlay"></span>
     </div>
 
-    <!-- ═══════════════════ CUSTOM CURSOR ═══════════════════ -->
-    <div class="cursor-dot" id="cursor-dot"></div>
-    <div class="cursor-outline" id="cursor-outline"></div>
-
-    <!-- ═══════════════════ NOISE OVERLAY ═══════════════════ -->
-    <div class="noise-overlay"></div>
-
-    <!-- ═══════════════════ FLOATING ORBS ═══════════════════ -->
-    <div class="floating-orbs">
-        <div class="orb orb-1"></div>
-        <div class="orb orb-2"></div>
-        <div class="orb orb-3"></div>
-        <div class="orb orb-4"></div>
-    </div>
-
-    <!-- ═══════════════════ THREE.JS CANVAS ═══════════════════ -->
-    <canvas id="three-canvas"></canvas>
-
-    <!-- ═══════════════════ NAVIGATION ═══════════════════ -->
-    <nav class="navbar" id="navbar">
-        <a href="#hero" class="nav-logo">
-            <span class="logo-bracket">&lt;</span>
-            <span class="logo-text">PSA</span>
-            <span class="logo-bracket">/&gt;</span>
-        </a>
-        <div class="nav-links" id="nav-links">
-            <a href="#about" class="nav-link">About</a>
-            <a href="#keyboard" class="nav-link">Skills</a>
-            <a href="#projects" class="nav-link">Projects</a>
-            <a href="#contact" class="nav-link">Contact</a>
-        </div>
-        <a href="https://github.com/Pausiar" target="_blank" rel="noopener" class="nav-github" aria-label="GitHub">
-            <i class="fab fa-github"></i>
-        </a>
-        <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
-            <span></span><span></span><span></span>
-        </button>
-    </nav>
-
-    <!-- ═══════════════════ MOBILE MENU ═══════════════════ -->
-    <div class="mobile-menu" id="mobile-menu">
-        <a href="#about" class="mobile-link">About</a>
-        <a href="#keyboard" class="mobile-link">Skills</a>
-        <a href="#projects" class="mobile-link">Projects</a>
-        <a href="#contact" class="mobile-link">Contact</a>
-    </div>
-
-    <!-- ═══════════════════ HERO SECTION ═══════════════════ -->
-    <section id="hero" class="hero">
-        <div class="hero-content">
-            <div class="hero-badge">
-                <span class="badge-dot"></span>
-                Available for work
+    <header class="site-header" id="top">
+        <nav class="nav shell" aria-label="Navegación principal">
+            <a class="brand" href="#top" aria-label="Ir al inicio">
+                <span class="brand-mark" aria-hidden="true">P</span>
+                <span>Pausiar</span>
+            </a>
+            <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu">
+                <span class="sr-only">Abrir menú</span>
+                <span></span><span></span><span></span>
+            </button>
+            <div class="nav-menu" id="nav-menu">
+                <a href="#projects">Proyectos</a>
+                <a href="#stack">Stack</a>
+                <a href="#about">Sobre mí</a>
+                <a href="#contact">Contacto</a>
             </div>
-            <h1 class="hero-title">
-                <span class="hero-line">
-                    <span class="hero-word" data-scroll>Pau</span>
-                    <span class="hero-word" data-scroll>Silvestre</span>
-                </span>
-                <span class="hero-line">
-                    <span class="hero-word accent" data-scroll>Arnandis</span>
-                </span>
-            </h1>
-            <div class="hero-subtitle">
-                <span class="subtitle-line"></span>
-                <p id="typewriter">Full-Stack Developer</p>
-            </div>
-            <p class="hero-description">
-                Crafting digital experiences through code — from web apps 
-                and AI systems to game mods and mobile applications.
-            </p>
-            <div class="hero-cta">
-                <a href="#projects" class="btn btn-primary magnetic">
-                    <span>View Projects</span>
-                    <i class="fas fa-arrow-down"></i>
-                </a>
-                <a href="#contact" class="btn btn-outline magnetic">
-                    <span>Get in Touch</span>
-                </a>
-            </div>
-        </div>
-        <div class="scroll-indicator">
-            <div class="scroll-mouse">
-                <div class="scroll-wheel"></div>
-            </div>
-            <span>Scroll</span>
-        </div>
-    </section>
+            <a class="nav-action" href="https://github.com/Pausiar" target="_blank" rel="noopener noreferrer">
+                GitHub
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3h7v7h-2V6.41l-9.29 9.3-1.42-1.42 9.3-9.29H14V3ZM5 5h6v2H7v10h10v-4h2v6H5V5Z"/></svg>
+            </a>
+        </nav>
+    </header>
 
-    <!-- ═══════════════════ MARQUEE DIVIDER ═══════════════════ -->
-    <div class="marquee-section">
-        <div class="marquee-track">
-            <div class="marquee-content">
-                <span>FULL-STACK</span><span class="marquee-dot">✦</span>
-                <span>DEVELOPER</span><span class="marquee-dot">✦</span>
-                <span>CREATIVE</span><span class="marquee-dot">✦</span>
-                <span>CODER</span><span class="marquee-dot">✦</span>
-                <span>FiveM</span><span class="marquee-dot">✦</span>
-                <span>AI</span><span class="marquee-dot">✦</span>
-                <span>PYTHON</span><span class="marquee-dot">✦</span>
-                <span>JAVA</span><span class="marquee-dot">✦</span>
-                <span>WEB</span><span class="marquee-dot">✦</span>
-                <span>MOBILE</span><span class="marquee-dot">✦</span>
-                <span>FULL-STACK</span><span class="marquee-dot">✦</span>
-                <span>DEVELOPER</span><span class="marquee-dot">✦</span>
-                <span>CREATIVE</span><span class="marquee-dot">✦</span>
-                <span>CODER</span><span class="marquee-dot">✦</span>
-                <span>FiveM</span><span class="marquee-dot">✦</span>
-                <span>AI</span><span class="marquee-dot">✦</span>
-                <span>PYTHON</span><span class="marquee-dot">✦</span>
-                <span>JAVA</span><span class="marquee-dot">✦</span>
-                <span>WEB</span><span class="marquee-dot">✦</span>
-                <span>MOBILE</span><span class="marquee-dot">✦</span>
-            </div>
-        </div>
-    </div>
-
-    <!-- ═══════════════════ ABOUT SECTION ═══════════════════ -->
-    <section id="about" class="about section">
-        <div class="section-container">
-            <div class="section-header">
-                <span class="section-number">01</span>
-                <h2 class="section-title" data-reveal>About Me</h2>
-                <div class="section-line"></div>
-            </div>
-            <div class="about-grid">
-                <div class="about-text" data-reveal>
-                    <p>
-                        Hey! I'm <strong>Pau Silvestre Arnandis</strong>, a passionate 
-                        Full-Stack Developer from Spain. I love building things that live on 
-                        the internet and beyond — from websites and web apps to AI assistants, 
-                        game modifications, and mobile applications.
-                    </p>
-                    <p>
-                        My journey spans diverse domains: developing <strong>FiveM</strong> 
-                        server scripts and custom UIs, creating <strong>Python</strong> automation 
-                        tools, building <strong>Android</strong> applications, and working with 
-                        <strong>Spring Boot</strong> backends. I thrive on the challenge of 
-                        learning new technologies and turning ideas into reality.
-                    </p>
-                    <p>
-                        When I'm not coding, you can find me creating content on 
-                        <a href="https://www.youtube.com/@Pausiar" target="_blank" rel="noopener">YouTube</a> 
-                        and <a href="https://www.tiktok.com/@pausiarog" target="_blank" rel="noopener">TikTok</a>.
-                    </p>
-                </div>
-                <div class="about-stats">
-                    <div class="stat-card" data-reveal>
-                        <span class="stat-number" data-count="67">0</span>
-                        <span class="stat-label">Repositories</span>
-                    </div>
-                    <div class="stat-card" data-reveal>
-                        <span class="stat-number" data-count="10">0</span>
-                        <span class="stat-label">Languages</span>
-                    </div>
-                    <div class="stat-card" data-reveal>
-                        <span class="stat-number" data-count="1841">0</span>
-                        <span class="stat-label">Contributions</span>
-                    </div>
-                    <div class="stat-card" data-reveal>
-                        <span class="stat-number" data-count="5">0</span>
-                        <span class="stat-label">Live Projects</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ═══════════════════ 3D KEYBOARD SECTION ═══════════════════ -->
-    <section id="keyboard" class="keyboard-section section">
-        <div class="section-container">
-            <div class="section-header">
-                <span class="section-number">02</span>
-                <h2 class="section-title" data-reveal>Tech Stack</h2>
-                <div class="section-line"></div>
-            </div>
-            <p class="keyboard-subtitle" data-reveal>Press or hover the keys to explore my skills</p>
-
-            <div class="keyboard-wrapper" data-reveal>
-                <div class="keyboard-scene">
-                    <div class="keyboard-body">
-                        <!-- Row 1: Top row -->
-                        <div class="kb-row">
-                            <div class="key" data-skill="lua" data-color="#2C2D72">
-                                <div class="key-top">
-                                    <i class="devicon-lua-plain"></i>
-                                    <span class="key-label">Lua</span>
-                                </div>
-                                <div class="key-front"></div>
-                                <div class="key-right"></div>
-                            </div>
-                            <div class="key" data-skill="java" data-color="#ED8B00">
-                                <div class="key-top">
-                                    <i class="devicon-java-plain"></i>
-                                    <span class="key-label">Java</span>
-                                </div>
-                                <div class="key-front"></div>
-                                <div class="key-right"></div>
-                            </div>
-                            <div class="key" data-skill="python" data-color="#3776AB">
-                                <div class="key-top">
-                                    <i class="devicon-python-plain"></i>
-                                    <span class="key-label">Python</span>
-                                </div>
-                                <div class="key-front"></div>
-                                <div class="key-right"></div>
-                            </div>
-                            <div class="key" data-skill="javascript" data-color="#F7DF1E">
-                                <div class="key-top">
-                                    <i class="devicon-javascript-plain"></i>
-                                    <span class="key-label">JS</span>
-                                </div>
-                                <div class="key-front"></div>
-                                <div class="key-right"></div>
-                            </div>
-                            <div class="key" data-skill="html5" data-color="#E34F26">
-                                <div class="key-top">
-                                    <i class="devicon-html5-plain"></i>
-                                    <span class="key-label">HTML</span>
-                                </div>
-                                <div class="key-front"></div>
-                                <div class="key-right"></div>
-                            </div>
-                        </div>
-                        <!-- Row 2 -->
-                        <div class="kb-row">
-                            <div class="key" data-skill="css3" data-color="#1572B6">
-                                <div class="key-top">
-                                    <i class="devicon-css3-plain"></i>
-                                    <span class="key-label">CSS</span>
-                                </div>
-                                <div class="key-front"></div>
-                                <div class="key-right"></div>
-                            </div>
-                            <div class="key" data-skill="csharp" data-color="#68217A">
-                                <div class="key-top">
-                                    <i class="devicon-csharp-plain"></i>
-                                    <span class="key-label">C#</span>
-                                </div>
-                                <div class="key-front"></div>
-                                <div class="key-right"></div>
-                            </div>
-                            <div class="key" data-skill="kotlin" data-color="#7F52FF">
-                                <div class="key-top">
-                                    <i class="devicon-kotlin-plain"></i>
-                                    <span class="key-label">Kotlin</span>
-                                </div>
-                                <div class="key-front"></div>
-                                <div class="key-right"></div>
-                            </div>
-                            <div class="key" data-skill="spring" data-color="#6DB33F">
-                                <div class="key-top">
-                                    <i class="devicon-spring-plain"></i>
-                                    <span class="key-label">Spring</span>
-                                </div>
-                                <div class="key-front"></div>
-                                <div class="key-right"></div>
-                            </div>
-                            <div class="key" data-skill="react" data-color="#61DAFB">
-                                <div class="key-top">
-                                    <i class="devicon-react-original"></i>
-                                    <span class="key-label">React</span>
-                                </div>
-                                <div class="key-front"></div>
-                                <div class="key-right"></div>
-                            </div>
-                        </div>
-                        <!-- Row 3 -->
-                        <div class="kb-row">
-                            <div class="key" data-skill="nodejs" data-color="#339933">
-                                <div class="key-top">
-                                    <i class="devicon-nodejs-plain"></i>
-                                    <span class="key-label">Node</span>
-                                </div>
-                                <div class="key-front"></div>
-                                <div class="key-right"></div>
-                            </div>
-                            <div class="key" data-skill="docker" data-color="#2496ED">
-                                <div class="key-top">
-                                    <i class="devicon-docker-plain"></i>
-                                    <span class="key-label">Docker</span>
-                                </div>
-                                <div class="key-front"></div>
-                                <div class="key-right"></div>
-                            </div>
-                            <div class="key" data-skill="git" data-color="#F05032">
-                                <div class="key-top">
-                                    <i class="devicon-git-plain"></i>
-                                    <span class="key-label">Git</span>
-                                </div>
-                                <div class="key-front"></div>
-                                <div class="key-right"></div>
-                            </div>
-                            <div class="key" data-skill="android" data-color="#3DDC84">
-                                <div class="key-top">
-                                    <i class="devicon-android-plain"></i>
-                                    <span class="key-label">Android</span>
-                                </div>
-                                <div class="key-front"></div>
-                                <div class="key-right"></div>
-                            </div>
-                            <div class="key" data-skill="linux" data-color="#FCC624">
-                                <div class="key-top">
-                                    <i class="devicon-linux-plain"></i>
-                                    <span class="key-label">Linux</span>
-                                </div>
-                                <div class="key-front"></div>
-                                <div class="key-right"></div>
-                            </div>
-                        </div>
-                        <!-- Spacebar row -->
-                        <div class="kb-row">
-                            <div class="key key-space" data-skill="fivem" data-color="#F40552">
-                                <div class="key-top">
-                                    <i class="fas fa-gamepad"></i>
-                                    <span class="key-label">FiveM &amp; Game Modding</span>
-                                </div>
-                                <div class="key-front"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Skill info panel -->
-                <div class="skill-info-panel" id="skill-info-panel">
-                    <div class="skill-info-icon" id="skill-info-icon"></div>
-                    <h3 class="skill-info-title" id="skill-info-title">Hover a key</h3>
-                    <p class="skill-info-desc" id="skill-info-desc">Explore my tech stack by hovering or clicking the keys on the keyboard above.</p>
-                    <div class="skill-info-bar">
-                        <div class="skill-info-bar-fill" id="skill-info-bar-fill"></div>
-                    </div>
-                    <span class="skill-info-level" id="skill-info-level"></span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ═══════════════════ MARQUEE DIVIDER 2 ═══════════════════ -->
-    <div class="marquee-section marquee-reverse">
-        <div class="marquee-track">
-            <div class="marquee-content marquee-content-reverse">
-                <span>PROJECTS</span><span class="marquee-dot">◆</span>
-                <span>PORTFOLIO</span><span class="marquee-dot">◆</span>
-                <span>OPEN SOURCE</span><span class="marquee-dot">◆</span>
-                <span>GITHUB</span><span class="marquee-dot">◆</span>
-                <span>INNOVATION</span><span class="marquee-dot">◆</span>
-                <span>CODE</span><span class="marquee-dot">◆</span>
-                <span>PROJECTS</span><span class="marquee-dot">◆</span>
-                <span>PORTFOLIO</span><span class="marquee-dot">◆</span>
-                <span>OPEN SOURCE</span><span class="marquee-dot">◆</span>
-                <span>GITHUB</span><span class="marquee-dot">◆</span>
-                <span>INNOVATION</span><span class="marquee-dot">◆</span>
-                <span>CODE</span><span class="marquee-dot">◆</span>
-            </div>
-        </div>
-    </div>
-
-    <!-- ═══════════════════ PROJECTS SECTION ═══════════════════ -->
-    <section id="projects" class="projects section">
-        <div class="section-container">
-            <div class="section-header">
-                <span class="section-number">03</span>
-                <h2 class="section-title" data-reveal>Featured Projects</h2>
-                <div class="section-line"></div>
-            </div>
-            <div class="project-filters" data-reveal>
-                <button class="filter-btn active" data-filter="all">All</button>
-                <button class="filter-btn" data-filter="web">Web</button>
-                <button class="filter-btn" data-filter="tools">AI &amp; Tools</button>
-                <button class="filter-btn" data-filter="gaming">Gaming</button>
-                <button class="filter-btn" data-filter="mobile">Mobile</button>
-            </div>
-            <div class="projects-grid" id="projects-grid">
-                <!-- Dynamically injected by app.js -->
-            </div>
-        </div>
-    </section>
-
-    <!-- ═══════════════════ CONTACT SECTION ═══════════════════ -->
-    <section id="contact" class="contact section">
-        <div class="section-container">
-            <div class="section-header">
-                <span class="section-number">04</span>
-                <h2 class="section-title" data-reveal>Get in Touch</h2>
-                <div class="section-line"></div>
-            </div>
-            <div class="contact-content">
-                <h3 class="contact-big-text">Let's work<br><span class="accent-text">together.</span></h3>
-                <p class="contact-text">
-                    I'm always open to new opportunities, collaborations, 
-                    or simply a friendly chat about tech. Feel free to reach out!
-                </p>
-                <a href="mailto:pausilvest@gmail.com" class="btn btn-primary btn-large magnetic">
-                    <span>Say Hello</span>
-                    <i class="fas fa-paper-plane"></i>
-                </a>
-                <div class="social-links">
-                    <a href="https://github.com/Pausiar" target="_blank" rel="noopener" class="social-link magnetic" aria-label="GitHub">
-                        <i class="fab fa-github"></i>
+    <main>
+        <section class="hero shell section" aria-labelledby="hero-title">
+            <div class="hero-copy">
+                <p class="eyebrow"><span></span> Portfolio personal · GitHub Pages</p>
+                <h1 id="hero-title">Pausiar crea webs, apps Android e IA aplicada con enfoque de producto.</h1>
+                <p class="hero-lead">Desarrollador centrado en construir productos digitales limpios: interfaces web, herramientas Android, automatizaciones, documentación técnica y experimentos open-source con IA.</p>
+                <div class="hero-actions" aria-label="Acciones principales">
+                    <a class="btn btn-primary" href="#projects">
+                        Ver proyectos
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v12.17l5.59-5.58L19 13l-7 7-7-7 1.41-1.41L11 17.17V5h1Z"/></svg>
                     </a>
-                    <a href="https://www.youtube.com/@Pausiar" target="_blank" rel="noopener" class="social-link magnetic" aria-label="YouTube">
-                        <i class="fab fa-youtube"></i>
-                    </a>
-                    <a href="https://www.tiktok.com/@pausiarog" target="_blank" rel="noopener" class="social-link magnetic" aria-label="TikTok">
-                        <i class="fab fa-tiktok"></i>
-                    </a>
-                    <a href="mailto:pausilvest@gmail.com" class="social-link magnetic" aria-label="Email">
-                        <i class="fas fa-envelope"></i>
+                    <a class="btn btn-secondary" href="https://github.com/Pausiar" target="_blank" rel="noopener noreferrer">
+                        Contactar / GitHub
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5a12 12 0 0 0-3.79 23.39c.6.11.82-.26.82-.58v-2.04c-3.34.73-4.04-1.42-4.04-1.42-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.74.08-.74 1.21.09 1.85 1.25 1.85 1.25 1.07 1.84 2.81 1.31 3.5 1 .11-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.53.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.29-1.55 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.49 5.93.43.37.81 1.1.81 2.22v3.29c0 .32.22.7.83.58A12 12 0 0 0 12 .5Z"/></svg>
                     </a>
                 </div>
+                <div class="hero-proof" aria-label="Áreas de especialidad">
+                    <span>Web</span><span>Android</span><span>IA</span><span>Automatización</span><span>Open-source</span>
+                </div>
             </div>
-        </div>
-    </section>
+            <aside class="hero-panel" aria-label="Resumen técnico">
+                <div class="panel-glow" aria-hidden="true"></div>
+                <div class="terminal-card">
+                    <div class="terminal-top" aria-hidden="true"><span></span><span></span><span></span></div>
+                    <pre><code>const pausiar = {
+  focus: ["AI", "Web", "Android"],
+  builds: "automation-first",
+  ships: "GitHub Pages + OSS"
+};</code></pre>
+                </div>
+                <div class="orbit-card orbit-card-one">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 4 6v12l8 4 8-4V6l-8-4Zm0 2.24L17.53 7 12 9.76 6.47 7 12 4.24ZM6 8.62l5 2.5v8.26l-5-2.5V8.62Zm7 10.76v-8.26l5-2.5v8.26l-5 2.5Z"/></svg>
+                    <span>Product UI</span>
+                </div>
+                <div class="orbit-card orbit-card-two">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 2h2v3h-2V2Zm7.66 3.93 1.41 1.41-2.12 2.12-1.41-1.41 2.12-2.12ZM19 11h3v2h-3v-2ZM4.93 5.93l2.12 2.12-1.41 1.41-2.12-2.12 1.41-1.41ZM2 11h3v2H2v-2Zm4 8h12v2H6v-2Zm1-7a5 5 0 1 1 8 4H9a5 5 0 0 1-2-4Zm2 0c0 .82.39 1.55 1 2h4c.61-.45 1-1.18 1-2a3 3 0 1 0-6 0Z"/></svg>
+                    <span>AI ideas</span>
+                </div>
+            </aside>
+        </section>
 
-    <!-- ═══════════════════ FOOTER ═══════════════════ -->
-    <footer class="footer">
-        <div class="footer-content">
-            <p>Designed &amp; Built by <strong>Pau Silvestre Arnandis</strong></p>
-            <p class="footer-year">&copy; 2026</p>
-        </div>
+        <section class="marquee" aria-label="Especialidades">
+            <div class="marquee-track">
+                <span>Web apps</span><span>Android</span><span>IA aplicada</span><span>APIs</span><span>Automatizaciones</span><span>Docs</span><span>FiveM</span><span>Open-source</span>
+                <span>Web apps</span><span>Android</span><span>IA aplicada</span><span>APIs</span><span>Automatizaciones</span><span>Docs</span><span>FiveM</span><span>Open-source</span>
+            </div>
+        </section>
+
+        <section class="section shell" id="projects" aria-labelledby="projects-title">
+            <div class="section-heading">
+                <p class="eyebrow"><span></span> Work selected</p>
+                <h2 id="projects-title">Proyectos destacados</h2>
+                <p>Una selección compacta de proyectos existentes: herramientas Android, documentación, webs y automatizaciones.</p>
+            </div>
+            <div class="projects-grid" id="projects-grid" aria-live="polite"></div>
+        </section>
+
+        <section class="section shell split" id="stack" aria-labelledby="stack-title">
+            <div class="section-heading sticky-copy">
+                <p class="eyebrow"><span></span> Toolkit</p>
+                <h2 id="stack-title">Tecnologías y herramientas</h2>
+                <p>Stack basado en el contenido del repo y proyectos enlazados, sin añadir dependencias pesadas a la web.</p>
+            </div>
+            <div class="stack-grid">
+                <article class="stack-card">
+                    <h3>Frontend</h3>
+                    <p>HTML, CSS, JavaScript y TypeScript para interfaces rápidas, responsive y mantenibles.</p>
+                    <div class="tag-list"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>TypeScript</span></div>
+                </article>
+                <article class="stack-card">
+                    <h3>Mobile</h3>
+                    <p>Apps Android y prototipos móviles con Kotlin y Java, incluyendo traducción y utilidades.</p>
+                    <div class="tag-list"><span>Kotlin</span><span>Java</span><span>Android</span><span>Mobile</span></div>
+                </article>
+                <article class="stack-card">
+                    <h3>IA & automatización</h3>
+                    <p>Asistentes, procesamiento de lenguaje, scripts, APIs y flujos para reducir trabajo repetitivo.</p>
+                    <div class="tag-list"><span>Python</span><span>AI</span><span>APIs</span><span>Automation</span></div>
+                </article>
+                <article class="stack-card">
+                    <h3>Open-source & delivery</h3>
+                    <p>Repositorios públicos, documentación técnica, GitHub Pages y despliegue estático simple.</p>
+                    <div class="tag-list"><span>GitHub</span><span>GitHub Pages</span><span>Docs</span><span>Node.js</span></div>
+                </article>
+            </div>
+        </section>
+
+        <section class="section shell about" id="about" aria-labelledby="about-title">
+            <div class="about-card">
+                <div>
+                    <p class="eyebrow"><span></span> About</p>
+                    <h2 id="about-title">Sobre Pausiar</h2>
+                </div>
+                <p>Pausiar construye productos digitales con un enfoque práctico: páginas web publicables, apps Android, documentación útil, automatizaciones y experimentos con IA aplicada. El objetivo es convertir ideas técnicas en experiencias limpias, rápidas y fáciles de usar.</p>
+                <div class="about-metrics" aria-label="Resumen de enfoque">
+                    <span><strong>Web</strong> Interfaces y docs</span>
+                    <span><strong>Android</strong> Utilidades móviles</span>
+                    <span><strong>AI</strong> Asistentes y flujos</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="section shell contact" id="contact" aria-labelledby="contact-title">
+            <div class="contact-card">
+                <p class="eyebrow"><span></span> Contact</p>
+                <h2 id="contact-title">¿Creamos algo útil?</h2>
+                <p>Para colaboraciones, feedback o revisar proyectos open-source, el punto de contacto principal es GitHub.</p>
+                <div class="contact-actions">
+                    <a class="btn btn-primary" href="https://github.com/Pausiar" target="_blank" rel="noopener noreferrer">GitHub @Pausiar</a>
+                    <a class="btn btn-secondary" href="mailto:pausilvest@gmail.com">pausilvest@gmail.com</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer shell">
+        <p>Diseñado y construido por <strong>Pausiar</strong>.</p>
+        <a href="#top">Volver arriba</a>
     </footer>
 
-    <!-- ═══════════════════ PREVIEW MODAL ═══════════════════ -->
-    <div class="preview-modal" id="preview-modal">
-        <div class="preview-header">
-            <div class="preview-dots">
-                <span></span><span></span><span></span>
-            </div>
-            <span class="preview-url" id="preview-url"></span>
-            <div class="preview-controls">
-                <button class="preview-size" data-width="375" title="Mobile"><i class="fas fa-mobile-alt"></i></button>
-                <button class="preview-size" data-width="768" title="Tablet"><i class="fas fa-tablet-alt"></i></button>
-                <button class="preview-size active" data-width="100%" title="Desktop"><i class="fas fa-desktop"></i></button>
-                <button class="preview-close" id="preview-close"><i class="fas fa-times"></i></button>
-            </div>
-        </div>
-        <div class="preview-body">
-            <iframe id="preview-iframe" src="" frameborder="0" loading="lazy" sandbox="allow-scripts allow-same-origin"></iframe>
-        </div>
-    </div>
-
-    <!-- ═══════════════════ SCRIPTS ═══════════════════ -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-    <script src="assets/js/three-scene.js"></script>
     <script src="assets/js/app.js"></script>
 </body>
 </html>
