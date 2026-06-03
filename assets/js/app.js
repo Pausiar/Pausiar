@@ -1,1149 +1,155 @@
-/* ═══════════════════════════════════════════════════════
-   APP.JS — Portfolio Application Logic
-   GSAP Animations · Projects · Filters · Preview Modal
-   3D Card Hover · Custom Cursor · Navigation
-   ═══════════════════════════════════════════════════════ */
+const iconPaths = {
+    ai: 'M12 2a3 3 0 0 1 3 3v1h1a3 3 0 0 1 3 3v1h1a2 2 0 1 1 0 4h-1v1a3 3 0 0 1-3 3h-1v1a3 3 0 1 1-6 0v-1H8a3 3 0 0 1-3-3v-1H4a2 2 0 1 1 0-4h1V9a3 3 0 0 1 3-3h1V5a3 3 0 0 1 3-3Zm-3 6a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-4a2 2 0 0 0-2-2H9Zm1 3h2v2h-2v-2Zm4 0h2v2h-2v-2Z',
+    mobile: 'M8 2h8a3 3 0 0 1 3 3v14a3 3 0 0 1-3 3H8a3 3 0 0 1-3-3V5a3 3 0 0 1 3-3Zm0 2a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1H8Zm2 13h4v2h-4v-2Z',
+    web: 'M3 5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-5v2h3v2H7v-2h3v-2H5a2 2 0 0 1-2-2V5Zm2 0v10h14V5H5Z',
+    docs: 'M6 2h8l5 5v15H6V2Zm7 2H8v16h9V8h-4V4Zm-2 8h4v2h-4v-2Zm-1 4h5v2h-5v-2Z',
+    automation: 'M12 2 4 6v6c0 5 3.4 8.6 8 10 4.6-1.4 8-5 8-10V6l-8-4Zm0 2.2 6 3V12c0 3.6-2.3 6.3-6 7.8-3.7-1.5-6-4.2-6-7.8V7.2l6-3ZM9 11h6v2H9v-2Z',
+    game: 'M7 9h10a5 5 0 0 1 4.8 3.6l.7 2.5a3 3 0 0 1-5 2.9L15.6 16H8.4l-1.9 2a3 3 0 0 1-5-2.9l.7-2.5A5 5 0 0 1 7 9Zm1 2v2H6v2H4v-2H2v-2h2V9h2v2h2Zm9 .5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3Z'
+};
 
-(function () {
-    'use strict';
-
-    /* ───────────────────────────────────────────────────
-       PROJECT DATA
-       ─────────────────────────────────────────────────── */
-    const projects = [
-        {
-            title: 'JARVIS',
-            description:
-                'AI-powered personal assistant built with Python. Voice recognition, task automation, and natural language processing capabilities.',
-            tech: ['Python', 'AI', 'NLP'],
-            category: 'tools',
-            icon: 'fas fa-robot',
-            github: 'https://github.com/Pausiar/JARVIS',
-            stars: 1,
-            featured: true,
-        },
-        {
-            title: 'School Bus Tracker',
-            description:
-                'Real-time school bus tracking application with route management, notifications, and live GPS monitoring.',
-            tech: ['JavaScript', 'Node.js', 'Real-time'],
-            category: 'web',
-            icon: 'fas fa-bus',
-            github: 'https://github.com/Pausiar/proyecto-final-school-bus',
-            stars: 1,
-            featured: true,
-        },
-        {
-            title: 'Talleres Mañes',
-            description:
-                'Professional website for an auto repair workshop. Clean responsive design with modern UI and service catalog.',
-            tech: ['HTML', 'CSS', 'JavaScript'],
-            category: 'web',
-            icon: 'fas fa-wrench',
-            github: 'https://github.com/Pausiar/talleres-manes-web',
-            live: 'https://pausiar.github.io/talleres-manes-web/',
-            stars: 1,
-            featured: true,
-        },
-        {
-            title: 'Twitch Stream Downloader',
-            description:
-                'Tool to download full Twitch streams for archiving, editing, or personal use. Automated VOD retrieval system.',
-            tech: ['Python', 'API', 'Automation'],
-            category: 'tools',
-            icon: 'fab fa-twitch',
-            github: 'https://github.com/Pausiar/TwitchDowloader',
-        },
-        {
-            title: 'Twitch Bot Viewer',
-            description:
-                'Automated Twitch viewing bot with configurable settings, proxy support, and session management.',
-            tech: ['Python', 'Twitch API', 'Bot'],
-            category: 'tools',
-            icon: 'fab fa-twitch',
-            github: 'https://github.com/Pausiar/Twitch-bot-viewer',
-            stars: 2,
-        },
-        {
-            title: 'Valorant Wintrading Checker',
-            description:
-                'Analytics tool to detect wintrading patterns in Valorant competitive matches using the Riot Games API.',
-            tech: ['Python', 'Data Analysis', 'Riot API'],
-            category: 'tools',
-            icon: 'fas fa-crosshairs',
-            github: 'https://github.com/Pausiar/wintrading-checker-valorant',
-        },
-        {
-            title: 'FiveM Anti-Cheat Dashboard',
-            description:
-                'Web dashboard for monitoring and managing anti-cheat detections in FiveM roleplay servers. Real-time alerts.',
-            tech: ['JavaScript', 'Dashboard', 'FiveM'],
-            category: 'gaming',
-            icon: 'fas fa-shield-alt',
-            github: 'https://github.com/Pausiar/ps-anticheat-dashboard',
-            featured: true,
-        },
-        {
-            title: 'Beach Tycoon',
-            description:
-                'Sustainability-focused beach management game. Plan resources, manage waste, and keep the environment clean!',
-            tech: ['Java', 'Game Dev', 'Education'],
-            category: 'gaming',
-            icon: 'fas fa-umbrella-beach',
-            github: 'https://github.com/Pausiar/JuegoSostenibilidad-BeachTycoon',
-        },
-        {
-            title: 'FiveM Inventory Reskin',
-            description:
-                'Complete UI redesign for ox_inventory in FiveM servers. Custom HTML/CSS theme with smooth animations.',
-            tech: ['Lua', 'HTML/CSS', 'FiveM'],
-            category: 'gaming',
-            icon: 'fas fa-boxes-stacked',
-            github: 'https://github.com/Pausiar/ox_inventory-reskin',
-            stars: 1,
-        },
-        {
-            title: 'FiveM Scripts Docs',
-            description:
-                'Documentation website for FiveM scripting resources — guides, API references, and setup tutorials.',
-            tech: ['HTML', 'CSS', 'Docs'],
-            category: 'web',
-            icon: 'fas fa-book',
-            github: 'https://github.com/Pausiar/ps_scripts-documentation',
-            live: 'https://pausiar.github.io/ps_scripts-documentation/',
-            stars: 2,
-        },
-        {
-            title: 'ProCoach',
-            description:
-                'Android coaching app for fitness and personal training management with workout tracking and scheduling.',
-            tech: ['Java', 'Android', 'Mobile'],
-            category: 'mobile',
-            icon: 'fas fa-dumbbell',
-            github: 'https://github.com/Pausiar/Android-ProCoach',
-        },
-        {
-            title: 'TheMovieDB App',
-            description:
-                'Android app consuming TheMovieDB API to browse movies, TV shows, ratings, and cast information.',
-            tech: ['Java', 'Android', 'REST API'],
-            category: 'mobile',
-            icon: 'fas fa-film',
-            github: 'https://github.com/Pausiar/Android-TheMovieDB',
-        },
-        {
-            title: 'AutoClipStudio',
-            description:
-                'Automated clip creation and editing tool. Streamline your content workflow with smart video processing.',
-            tech: ['HTML', 'Automation', 'Video'],
-            category: 'tools',
-            icon: 'fas fa-scissors',
-            github: 'https://github.com/Pausiar/AutoClipStudio-DOCS',
-            live: 'https://pausiar.github.io/AutoClipStudio-DOCS/',
-        },
-        {
-            title: 'Music Website',
-            description:
-                'Aesthetic music-themed website with modern design, playlist integration, and creative UI animations.',
-            tech: ['HTML', 'CSS', 'JavaScript'],
-            category: 'web',
-            icon: 'fas fa-music',
-            github: 'https://github.com/Pausiar/web-musica',
-            live: 'https://pausiar.github.io/web-musica/',
-        },
-        {
-            title: 'Content Warning Menu',
-            description:
-                'Custom menu mod for the Content Warning game built with C# and Unity modding framework.',
-            tech: ['C#', 'Unity', 'Modding'],
-            category: 'gaming',
-            icon: 'fas fa-ghost',
-            github: 'https://github.com/Pausiar/content-warning-menu',
-        },
-        {
-            title: 'Aura Flow',
-            description:
-                'Aesthetic visual flow website featuring creative CSS animations, gradients, and interactive elements.',
-            tech: ['CSS', 'HTML', 'Design'],
-            category: 'web',
-            icon: 'fas fa-wand-magic-sparkles',
-            github: 'https://github.com/Pausiar/aura-flow',
-            live: 'https://pausiar.github.io/aura-flow/',
-        },
-        {
-            title: 'Booking Creator',
-            description:
-                'Booking management system for businesses. Companies set up their own profile, services, and accept reservations with payment integration.',
-            tech: ['HTML', 'CSS', 'JavaScript'],
-            category: 'web',
-            icon: 'fas fa-calendar-check',
-            github: 'https://github.com/Pausiar/proyecto-final',
-            stars: 1,
-        },
-        {
-            title: 'Social Media Tools',
-            description:
-                'Set of tools to boost social media channels with automation utilities for content scheduling and engagement.',
-            tech: ['HTML', 'JavaScript', 'Automation'],
-            category: 'tools',
-            icon: 'fas fa-share-nodes',
-            github: 'https://github.com/Pausiar/social-media-tools',
-        },
-        {
-            title: 'TikTok Boost',
-            description:
-                'Automated TikTok growth tool to help boost visibility and engagement on the TikTok platform.',
-            tech: ['HTML', 'JavaScript', 'Automation'],
-            category: 'tools',
-            icon: 'fab fa-tiktok',
-            github: 'https://github.com/Pausiar/tiktok_boost',
-        },
-        {
-            title: 'CS Gambling Site',
-            description:
-                'Counter-Strike themed gambling/gaming site with custom UI and interactive design.',
-            tech: ['HTML', 'CSS', 'JavaScript'],
-            category: 'web',
-            icon: 'fas fa-dice',
-            github: 'https://github.com/Pausiar/cs_gamglinb_site',
-        },
-        {
-            title: 'Typo Mod',
-            description:
-                'Styled text generator with small caps conversion, emoji selector, bracket styles, and real-time preview.',
-            tech: ['HTML', 'CSS', 'JavaScript'],
-            category: 'tools',
-            icon: 'fas fa-font',
-            github: 'https://github.com/Pausiar/Typo_Mod',
-            live: 'https://pausiar.github.io/Typo_Mod',
-        },
-        {
-            title: 'Check Space',
-            description:
-                'File storage analyzer that quickly identifies which files are consuming the most disk space.',
-            tech: ['JavaScript', 'Node.js', 'CLI'],
-            category: 'tools',
-            icon: 'fas fa-hard-drive',
-            github: 'https://github.com/Pausiar/check-space',
-        },
-        {
-            title: 'SEO Analyzer',
-            description:
-                'SEO analysis tool that inspects web pages and provides actionable insights to improve search engine rankings.',
-            tech: ['JavaScript', 'SEO', 'Web'],
-            category: 'tools',
-            icon: 'fas fa-magnifying-glass-chart',
-            github: 'https://github.com/Pausiar/SEO-Analyzer',
-        },
-        {
-            title: 'Google MCPs',
-            description:
-                'Google MCP (Model Context Protocol) integrations for Google Search Console and Google AdSense.',
-            tech: ['Python', 'MCP', 'AI'],
-            category: 'tools',
-            icon: 'fab fa-google',
-            github: 'https://github.com/Pausiar/Google-MCPs',
-        },
-        {
-            title: 'FiveM Anti-Tank',
-            description:
-                'FiveM script that prevents players from dying to headshots, balancing combat in roleplay servers.',
-            tech: ['Lua', 'FiveM', 'Script'],
-            category: 'gaming',
-            icon: 'fas fa-shield-halved',
-            github: 'https://github.com/Pausiar/ps_antitank',
-            stars: 1,
-        },
-        {
-            title: 'ox_target Reskin',
-            description:
-                'Custom UI redesign for the ox_target FiveM resource with modern styling and smooth interactions.',
-            tech: ['Lua', 'HTML/CSS', 'FiveM'],
-            category: 'gaming',
-            icon: 'fas fa-crosshairs',
-            github: 'https://github.com/Pausiar/ox_target-reskin',
-        },
-        {
-            title: 'Anti-VDM Redesign',
-            description:
-                'UI redesign for the nova_antiVDM resource in FiveM servers with improved Spanish localization.',
-            tech: ['Lua', 'HTML/CSS', 'FiveM'],
-            category: 'gaming',
-            icon: 'fas fa-car-burst',
-            github: 'https://github.com/Pausiar/nova_antiVDM-redesign-ESP-',
-        },
-        {
-            title: 'okokReports Redesign',
-            description:
-                'Complete UI redesign for the okokReports FiveM resource with a cleaner, more modern interface.',
-            tech: ['Lua', 'HTML/CSS', 'FiveM'],
-            category: 'gaming',
-            icon: 'fas fa-flag',
-            github: 'https://github.com/Pausiar/okokReports-redesign',
-        },
-        {
-            title: 'FiveM Maps',
-            description:
-                'Custom map additions and modifications for FiveM roleplay servers built with mapping tools.',
-            tech: ['Lua', 'FiveM', 'Mapping'],
-            category: 'gaming',
-            icon: 'fas fa-map-location-dot',
-            github: 'https://github.com/Pausiar/mapeados',
-        },
-        {
-            title: 'Scoreboard Reskin',
-            description:
-                'UI reskin for the omes_scoreboard FiveM resource with a redesigned player list and server stats.',
-            tech: ['Lua', 'HTML/CSS', 'FiveM'],
-            category: 'gaming',
-            icon: 'fas fa-table-list',
-            github: 'https://github.com/Pausiar/omes_scoreboard-reskin',
-        },
-        {
-            title: 'Announces Reskin',
-            description:
-                'Custom UI redesign for the lux-announces FiveM resource with smooth animations and modern look.',
-            tech: ['Lua', 'CSS', 'FiveM'],
-            category: 'gaming',
-            icon: 'fas fa-bullhorn',
-            github: 'https://github.com/Pausiar/lux-announces-reskin',
-        },
-        {
-            title: 'Multijob Reskin',
-            description:
-                'UI redesign for the ec-multijob FiveM resource, improving the job selection and management interface.',
-            tech: ['Lua', 'HTML/CSS', 'FiveM'],
-            category: 'gaming',
-            icon: 'fas fa-briefcase',
-            github: 'https://github.com/Pausiar/ec-multijob-reskin',
-        },
-        {
-            title: 'FiveM Robbery',
-            description:
-                'Ammu-Nation robbery script for FiveM servers with configurable settings and reward system.',
-            tech: ['Lua', 'FiveM', 'Script'],
-            category: 'gaming',
-            icon: 'fas fa-gun',
-            github: 'https://github.com/Pausiar/ps_ammurobery',
-        },
-        {
-            title: 'FiveM Suelo',
-            description:
-                'Ground-based interaction script for FiveM servers adding terrain crawling and prone mechanics.',
-            tech: ['Lua', 'FiveM', 'Script'],
-            category: 'gaming',
-            icon: 'fas fa-person-falling',
-            github: 'https://github.com/Pausiar/ps_suelo',
-        },
-        {
-            title: 'FiveM No Radio',
-            description:
-                'Script that disables the radio UI in FiveM servers for a cleaner roleplay experience.',
-            tech: ['Lua', 'FiveM', 'Script'],
-            category: 'gaming',
-            icon: 'fas fa-radio',
-            github: 'https://github.com/Pausiar/ps_noradio',
-        },
-        {
-            title: 'Appearance Reskin',
-            description:
-                'UI reskin for the illenium-appearance FiveM resource with a modern character customization interface.',
-            tech: ['Lua', 'HTML/CSS', 'FiveM'],
-            category: 'gaming',
-            icon: 'fas fa-user-pen',
-            github: 'https://github.com/Pausiar/illenium-appearance-reskin',
-        },
-        {
-            title: 'FiveM Car Crash',
-            description:
-                'Realistic car crash script for FiveM that triggers injury effects and emergency services on high-impact collisions.',
-            tech: ['Lua', 'FiveM', 'Script'],
-            category: 'gaming',
-            icon: 'fas fa-car-crash',
-            github: 'https://github.com/Pausiar/ps_carcrash',
-        },
-        {
-            title: 'FiveM Suicide',
-            description:
-                'Roleplay suicide/respawn script for FiveM servers with configurable animations and respawn options.',
-            tech: ['Lua', 'FiveM', 'Script'],
-            category: 'gaming',
-            icon: 'fas fa-skull',
-            github: 'https://github.com/Pausiar/ps_suicide',
-        },
-        {
-            title: 'Arkanoid',
-            description:
-                'Classic Arkanoid brick-breaker game built with C# and Unity, featuring multiple levels and power-ups.',
-            tech: ['C#', 'Unity', 'Game Dev'],
-            category: 'gaming',
-            icon: 'fas fa-gamepad',
-            github: 'https://github.com/Pausiar/Arkanoid',
-        },
-        {
-            title: 'Amplya',
-            description:
-                'Android application with a landing page and APK distribution. A mobile utility app with modern UI.',
-            tech: ['Java', 'Android', 'HTML'],
-            category: 'mobile',
-            icon: 'fas fa-mobile-screen',
-            github: 'https://github.com/Pausiar/Amplya-In-Out',
-        },
-        {
-            title: 'Real-Time Translate',
-            description:
-                'Android app for real-time speech translation from Polish to Spanish using on-device processing.',
-            tech: ['Kotlin', 'Android', 'ML'],
-            category: 'mobile',
-            icon: 'fas fa-language',
-            github: 'https://github.com/Pausiar/realtime-translate',
-        },
-        {
-            title: 'Contador Vidas',
-            description:
-                'Android life counter app for board games and card games with customizable player tracking.',
-            tech: ['Kotlin', 'Android', 'Mobile'],
-            category: 'mobile',
-            icon: 'fas fa-heart',
-            github: 'https://github.com/Pausiar/Android-ContadorVidas',
-        },
-        {
-            title: 'NotesDeVeu',
-            description:
-                'Android notes application with voice recording support for creating and organizing audio notes.',
-            tech: ['Java', 'Android', 'Mobile'],
-            category: 'mobile',
-            icon: 'fas fa-microphone',
-            github: 'https://github.com/Pausiar/Android-NotesDeVeu',
-        },
-    ];
-
-    /* ───────────────────────────────────────────────────
-       DOM REFERENCES
-       ─────────────────────────────────────────────────── */
-    const $ = (sel) => document.querySelector(sel);
-    const $$ = (sel) => document.querySelectorAll(sel);
-
-    const loader = $('#loader');
-    const cursorDot = $('#cursor-dot');
-    const cursorOutline = $('#cursor-outline');
-    const navbar = $('#navbar');
-    const navToggle = $('#nav-toggle');
-    const mobileMenu = $('#mobile-menu');
-    const projectsGrid = $('#projects-grid');
-    const previewModal = $('#preview-modal');
-    const previewIframe = $('#preview-iframe');
-    const previewUrl = $('#preview-url');
-    const previewClose = $('#preview-close');
-
-    /* ───────────────────────────────────────────────────
-       LOADER
-       ─────────────────────────────────────────────────── */
-    window.addEventListener('load', () => {
-        setTimeout(() => {
-            loader.classList.add('hidden');
-            initAnimations();
-        }, 2200);
-    });
-
-    /* ───────────────────────────────────────────────────
-       CUSTOM CURSOR
-       ─────────────────────────────────────────────────── */
-    if (window.innerWidth > 768) {
-        let cx = 0, cy = 0;
-        let ox = 0, oy = 0;
-
-        document.addEventListener('mousemove', (e) => {
-            cx = e.clientX;
-            cy = e.clientY;
-        });
-
-        function updateCursor() {
-            // Dot follows immediately
-            cursorDot.style.left = cx + 'px';
-            cursorDot.style.top = cy + 'px';
-
-            // Outline follows with delay
-            ox += (cx - ox) * 0.12;
-            oy += (cy - oy) * 0.12;
-            cursorOutline.style.left = ox + 'px';
-            cursorOutline.style.top = oy + 'px';
-
-            requestAnimationFrame(updateCursor);
-        }
-        updateCursor();
-
-        // Hover state on interactive elements
-        const interactiveEls = 'a, button, .btn, .filter-btn, .project-card, .social-link, .project-preview-btn, .project-link, .nav-toggle';
-
-        document.addEventListener('mouseover', (e) => {
-            if (e.target.closest(interactiveEls)) {
-                cursorDot.classList.add('hovering');
-                cursorOutline.classList.add('hovering');
-            }
-        });
-
-        document.addEventListener('mouseout', (e) => {
-            if (e.target.closest(interactiveEls)) {
-                cursorDot.classList.remove('hovering');
-                cursorOutline.classList.remove('hovering');
-            }
-        });
+const projects = [
+    {
+        title: 'Openfy',
+        description: 'Proyecto open-source orientado a producto digital y experimentación con experiencias web modernas.',
+        tech: ['Open-source', 'Web', 'Product'],
+        status: 'Exploración activa',
+        repo: 'https://github.com/Pausiar/Openfy',
+        icon: 'web'
+    },
+    {
+        title: 'Realtime Translate',
+        description: 'App Android para traducción de voz en tiempo real con enfoque mobile y procesamiento aplicado.',
+        tech: ['Kotlin', 'Android', 'ML'],
+        status: 'Android app',
+        repo: 'https://github.com/Pausiar/realtime-translate',
+        icon: 'mobile'
+    },
+    {
+        title: 'Fit Track Android',
+        description: 'Aplicación Android de seguimiento fitness para registrar progreso y hábitos de entrenamiento.',
+        tech: ['Android', 'Kotlin', 'Mobile'],
+        status: 'Mobile product',
+        repo: 'https://github.com/Pausiar/Fit-Track-Android',
+        icon: 'mobile'
+    },
+    {
+        title: 'JARVIS Docs',
+        description: 'Documentación y base técnica para asistente tipo JARVIS centrado en IA, comandos y automatización.',
+        tech: ['Docs', 'AI', 'Automation'],
+        status: 'Documentación',
+        repo: 'https://github.com/Pausiar/JARVIS',
+        icon: 'ai'
+    },
+    {
+        title: 'Premium Scripting',
+        description: 'Documentación pública para scripts premium, con foco en claridad, instalación y soporte técnico.',
+        tech: ['HTML', 'CSS', 'Docs'],
+        status: 'GitHub Pages',
+        repo: 'https://github.com/Pausiar/ps_scripts-documentation',
+        demo: 'https://pausiar.github.io/ps_scripts-documentation/',
+        icon: 'docs'
+    },
+    {
+        title: 'Twitch Downloader',
+        description: 'Herramienta de automatización para descargas y flujos alrededor de contenido de Twitch.',
+        tech: ['Python', 'API', 'Automation'],
+        status: 'Automation tool',
+        repo: 'https://github.com/Pausiar/TwitchDowloader',
+        icon: 'automation'
+    },
+    {
+        title: 'School Bus Live Tracker',
+        description: 'Sistema de tracking en tiempo real para transporte escolar con JavaScript y Node.js.',
+        tech: ['JavaScript', 'Node.js', 'Real-time'],
+        status: 'Real-time web',
+        repo: 'https://github.com/Pausiar/proyecto-final-school-bus',
+        icon: 'web'
+    },
+    {
+        title: 'FiveM Scripts & UI',
+        description: 'Colección de recursos, scripts y reskins para servidores FiveM con interfaces personalizadas.',
+        tech: ['Lua', 'FiveM', 'HTML/CSS'],
+        status: 'Gaming tools',
+        repo: 'https://github.com/Pausiar/ps-anticheat-dashboard',
+        icon: 'game'
     }
+];
 
-    /* ───────────────────────────────────────────────────
-       NAVIGATION
-       ─────────────────────────────────────────────────── */
-    // Scroll — add background
-    let lastScroll = 0;
-    window.addEventListener('scroll', () => {
-        const scrollY = window.pageYOffset;
-        navbar.classList.toggle('scrolled', scrollY > 50);
-        lastScroll = scrollY;
-    });
+const projectsGrid = document.querySelector('#projects-grid');
+const navToggle = document.querySelector('.nav-toggle');
+const navMenu = document.querySelector('#nav-menu');
 
-    // Mobile toggle
-    navToggle.addEventListener('click', () => {
-        navToggle.classList.toggle('active');
-        mobileMenu.classList.toggle('active');
-        document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
-    });
+function svgIcon(name) {
+    return `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="${iconPaths[name] || iconPaths.web}"/></svg>`;
+}
 
-    // Close mobile menu on link click
-    $$('.mobile-link').forEach((link) => {
-        link.addEventListener('click', () => {
-            navToggle.classList.remove('active');
-            mobileMenu.classList.remove('active');
-            document.body.style.overflow = '';
-        });
-    });
+function renderProjects() {
+    if (!projectsGrid) return;
 
-    // Active nav link on scroll
-    const sections = $$('.section');
-    const navLinks = $$('.nav-link');
-
-    function updateActiveNav() {
-        const scrollPos = window.pageYOffset + 200;
-        sections.forEach((section) => {
-            const top = section.offsetTop;
-            const height = section.offsetHeight;
-            const id = section.getAttribute('id');
-            if (scrollPos >= top && scrollPos < top + height) {
-                navLinks.forEach((link) => {
-                    link.classList.toggle('active', link.getAttribute('href') === '#' + id);
-                });
-            }
-        });
-    }
-    window.addEventListener('scroll', updateActiveNav);
-
-    /* ───────────────────────────────────────────────────
-       SMOOTH SCROLL (for nav links)
-       ─────────────────────────────────────────────────── */
-    $$('a[href^="#"]').forEach((anchor) => {
-        anchor.addEventListener('click', (e) => {
-            e.preventDefault();
-            const target = document.querySelector(anchor.getAttribute('href'));
-            if (target) {
-                const offset = 80;
-                const top = target.offsetTop - offset;
-                window.scrollTo({ top, behavior: 'smooth' });
-            }
-        });
-    });
-
-    /* ───────────────────────────────────────────────────
-       GSAP ANIMATIONS
-       ─────────────────────────────────────────────────── */
-    function initAnimations() {
-        gsap.registerPlugin(ScrollTrigger);
-
-        /* ── Hero Entrance ── */
-        const heroTl = gsap.timeline({ defaults: { ease: 'power4.out' } });
-
-        heroTl
-            .to('.hero-word', {
-                y: 0,
-                duration: 1.2,
-                stagger: 0.15,
-            })
-            .to(
-                '.hero-badge',
-                { opacity: 1, y: 0, duration: 0.8 },
-                '-=0.6'
-            )
-            .to(
-                '.hero-subtitle',
-                { opacity: 1, y: 0, duration: 0.8 },
-                '-=0.4'
-            )
-            .to(
-                '.hero-description',
-                { opacity: 1, y: 0, duration: 0.8 },
-                '-=0.4'
-            )
-            .to(
-                '.hero-cta',
-                { opacity: 1, y: 0, duration: 0.8 },
-                '-=0.4'
-            );
-
-        /* ── Immersive Zoom-In from Hero ── */
-        gsap.to('.hero-content', {
-            scale: 1.8,
-            opacity: 0,
-            filter: 'blur(10px)',
-            scrollTrigger: {
-                trigger: '.hero',
-                start: 'top top',
-                end: '80% top',
-                scrub: 1.5,
-            },
-        });
-
-        gsap.to('.scroll-indicator', {
-            opacity: 0,
-            scrollTrigger: {
-                trigger: '.hero',
-                start: '10% top',
-                end: '30% top',
-                scrub: true,
-            },
-        });
-
-        /* ── Section Reveals ── */
-        $$('[data-reveal]').forEach((el, i) => {
-            gsap.to(el, {
-                scrollTrigger: {
-                    trigger: el,
-                    start: 'top 85%',
-                    end: 'top 60%',
-                    onEnter: () => el.classList.add('revealed'),
-                },
-            });
-        });
-
-        /* ── Parallax on About Section ── */
-        gsap.to('.about-text', {
-            y: -40,
-            scrollTrigger: {
-                trigger: '.about',
-                start: 'top bottom',
-                end: 'bottom top',
-                scrub: 1,
-            },
-        });
-
-        gsap.to('.about-stats', {
-            y: -20,
-            scrollTrigger: {
-                trigger: '.about',
-                start: 'top bottom',
-                end: 'bottom top',
-                scrub: 1,
-            },
-        });
-
-        /* ── 3D Keyboard Stagger ── */
-        gsap.from('.key', {
-            y: 60,
-            opacity: 0,
-            rotationX: 30,
-            stagger: 0.06,
-            duration: 0.6,
-            ease: 'back.out(1.7)',
-            scrollTrigger: {
-                trigger: '.keyboard-body',
-                start: 'top 80%',
-            },
-        });
-
-        gsap.from('.skill-info-panel', {
-            y: 40,
-            opacity: 0,
-            duration: 0.8,
-            ease: 'power3.out',
-            scrollTrigger: {
-                trigger: '.skill-info-panel',
-                start: 'top 90%',
-            },
-        });
-
-        /* ── Project Cards 3D Stagger ── */
-        function animateProjectCards() {
-            gsap.from('.project-card:not(.hidden)', {
-                y: 100,
-                opacity: 0,
-                rotationY: 10,
-                scale: 0.95,
-                stagger: 0.1,
-                duration: 0.7,
-                ease: 'power3.out',
-                scrollTrigger: {
-                    trigger: '.projects-grid',
-                    start: 'top 85%',
-                },
-            });
-        }
-
-        // Initial render & animate
-        renderProjects();
-        animateProjectCards();
-
-        /* ── Counter Animation ── */
-        $$('[data-count]').forEach((counter) => {
-            const target = parseInt(counter.getAttribute('data-count'));
-            gsap.to(counter, {
-                innerText: target,
-                duration: 2,
-                snap: { innerText: 1 },
-                ease: 'power2.out',
-                scrollTrigger: {
-                    trigger: counter,
-                    start: 'top 85%',
-                },
-            });
-        });
-
-        /* ── Contact Section ── */
-        gsap.from('.contact-content', {
-            y: 60,
-            opacity: 0,
-            scale: 0.95,
-            duration: 1,
-            ease: 'power3.out',
-            scrollTrigger: {
-                trigger: '.contact',
-                start: 'top 90%',
-            },
-        });
-
-        gsap.from('.social-link', {
-            y: 30,
-            opacity: 0,
-            scale: 0.8,
-            stagger: 0.1,
-            duration: 0.6,
-            ease: 'back.out(1.7)',
-            scrollTrigger: {
-                trigger: '.social-links',
-                start: 'top 95%',
-            },
-        });
-
-        /* ── Parallax Story — Section Backgrounds ── */
-        sections.forEach((section) => {
-            gsap.fromTo(
-                section,
-                { backgroundPositionY: '-20%' },
-                {
-                    backgroundPositionY: '20%',
-                    scrollTrigger: {
-                        trigger: section,
-                        start: 'top bottom',
-                        end: 'bottom top',
-                        scrub: true,
-                    },
-                }
-            );
-        });
-    }
-
-    /* ───────────────────────────────────────────────────
-       RENDER PROJECTS
-       ─────────────────────────────────────────────────── */
-    function renderProjects(filter = 'all') {
-        projectsGrid.innerHTML = '';
-
-        const filtered =
-            filter === 'all'
-                ? projects
-                : projects.filter((p) => p.category === filter);
-
-        filtered.forEach((project) => {
-            const card = document.createElement('div');
-            card.className = 'project-card';
-            card.dataset.category = project.category;
-
-            const starsHtml = project.stars
-                ? `<div class="project-stars">
-                       <i class="fas fa-star"></i>
-                       <span>${project.stars}</span>
-                   </div>`
-                : '';
-
-            const featuredHtml = project.featured
-                ? `<span class="featured-badge">Featured</span>`
-                : '';
-
-            const liveLink = project.live
-                ? `<a href="${project.live}" target="_blank" rel="noopener" class="project-link" title="Live Demo">
-                       <i class="fas fa-external-link-alt"></i>
-                   </a>`
-                : '';
-
-            const previewBtn = project.live
-                ? `<button class="project-preview-btn" data-url="${project.live}" data-title="${project.title}">
-                       <i class="fas fa-eye"></i> Live Preview
-                   </button>`
-                : '';
-
-            card.innerHTML = `
-                ${featuredHtml}
-                <div class="card-shine"></div>
-                <div class="project-card-inner">
-                    <div class="project-header">
-                        <div class="project-icon">
-                            <i class="${project.icon}"></i>
-                        </div>
-                        <div class="project-links">
-                            <a href="${project.github}" target="_blank" rel="noopener" class="project-link" title="GitHub">
-                                <i class="fab fa-github"></i>
-                            </a>
-                            ${liveLink}
-                        </div>
-                    </div>
-                    <h3 class="project-title">${project.title}</h3>
-                    <p class="project-description">${project.description}</p>
-                    <div class="project-tech">
-                        ${project.tech.map((t) => `<span class="project-tech-tag">${t}</span>`).join('')}
-                    </div>
-                    <div class="project-footer">
-                        ${starsHtml}
-                        ${previewBtn}
-                    </div>
+    projectsGrid.innerHTML = projects.map((project) => `
+        <article class="project-card reveal">
+            <div class="project-top">
+                <div class="project-icon">${svgIcon(project.icon)}</div>
+                <div class="project-links">
+                    <a href="${project.repo}" target="_blank" rel="noopener noreferrer" aria-label="Repositorio de ${project.title}">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5a12 12 0 0 0-3.79 23.39c.6.11.82-.26.82-.58v-2.04c-3.34.73-4.04-1.42-4.04-1.42-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.74.08-.74 1.21.09 1.85 1.25 1.85 1.25 1.07 1.84 2.81 1.31 3.5 1 .11-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.53.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.29-1.55 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.49 5.93.43.37.81 1.1.81 2.22v3.29c0 .32.22.7.83.58A12 12 0 0 0 12 .5Z"/></svg>
+                    </a>
+                    ${project.demo ? `<a href="${project.demo}" target="_blank" rel="noopener noreferrer" aria-label="Demo de ${project.title}">${svgIcon('web')}</a>` : ''}
                 </div>
-            `;
+            </div>
+            <h3>${project.title}</h3>
+            <p>${project.description}</p>
+            <div class="project-tech">${project.tech.map((tech) => `<span>${tech}</span>`).join('')}</div>
+            <span class="project-status">${project.status}</span>
+        </article>
+    `).join('');
+}
 
-            projectsGrid.appendChild(card);
-        });
+function initNav() {
+    if (!navToggle || !navMenu) return;
 
-        // Attach 3D hover
-        attach3DHover();
-
-        // Attach preview buttons
-        attachPreviewButtons();
-    }
-
-    /* ───────────────────────────────────────────────────
-       PROJECT FILTERS
-       ─────────────────────────────────────────────────── */
-    $$('.filter-btn').forEach((btn) => {
-        btn.addEventListener('click', () => {
-            $$('.filter-btn').forEach((b) => b.classList.remove('active'));
-            btn.classList.add('active');
-
-            const filter = btn.dataset.filter;
-            renderProjects(filter);
-
-            // Re-animate cards
-            gsap.from('.project-card', {
-                y: 60,
-                opacity: 0,
-                scale: 0.9,
-                rotationY: 8,
-                stagger: 0.08,
-                duration: 0.6,
-                ease: 'power3.out',
-            });
-        });
+    navToggle.addEventListener('click', () => {
+        const isOpen = navMenu.classList.toggle('is-open');
+        document.body.classList.toggle('menu-open', isOpen);
+        navToggle.setAttribute('aria-expanded', String(isOpen));
     });
 
-    /* ───────────────────────────────────────────────────
-       3D CARD HOVER EFFECT
-       ─────────────────────────────────────────────────── */
-    function attach3DHover() {
-        if (window.innerWidth <= 768) return;
-
-        $$('.project-card').forEach((card) => {
-            card.addEventListener('mousemove', (e) => {
-                const rect = card.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-                const centerX = rect.width / 2;
-                const centerY = rect.height / 2;
-
-                const rotateX = ((y - centerY) / centerY) * -8;
-                const rotateY = ((x - centerX) / centerX) * 8;
-
-                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.03, 1.03, 1.03)`;
-
-                // Update shine position
-                card.style.setProperty('--mouse-x', x + 'px');
-                card.style.setProperty('--mouse-y', y + 'px');
-                card.style.setProperty('--shine-x', x + 'px');
-                card.style.setProperty('--shine-y', y + 'px');
-            });
-
-            card.addEventListener('mouseleave', () => {
-                card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
-            });
-        });
-    }
-
-    /* ───────────────────────────────────────────────────
-       PREVIEW MODAL (Live Website Previews)
-       ─────────────────────────────────────────────────── */
-    function attachPreviewButtons() {
-        $$('.project-preview-btn').forEach((btn) => {
-            btn.addEventListener('click', (e) => {
-                e.stopPropagation();
-                const url = btn.dataset.url;
-                const title = btn.dataset.title;
-                openPreview(url, title);
-            });
-        });
-    }
-
-    function openPreview(url, title) {
-        previewIframe.src = url;
-        previewUrl.textContent = url;
-        previewModal.classList.add('active');
-        document.body.style.overflow = 'hidden';
-    }
-
-    function closePreview() {
-        previewModal.classList.remove('active');
-        document.body.style.overflow = '';
-        setTimeout(() => {
-            previewIframe.src = '';
-        }, 400);
-    }
-
-    previewClose.addEventListener('click', closePreview);
-
-    previewModal.addEventListener('click', (e) => {
-        if (e.target === previewModal) closePreview();
-    });
-
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') closePreview();
-    });
-
-    // Preview size controls
-    $$('.preview-size').forEach((btn) => {
-        btn.addEventListener('click', () => {
-            $$('.preview-size').forEach((b) => b.classList.remove('active'));
-            btn.classList.add('active');
-            const width = btn.dataset.width;
-            previewIframe.style.width =
-                width === '100%' ? '100%' : width + 'px';
+    navMenu.querySelectorAll('a').forEach((link) => {
+        link.addEventListener('click', () => {
+            navMenu.classList.remove('is-open');
+            document.body.classList.remove('menu-open');
+            navToggle.setAttribute('aria-expanded', 'false');
         });
     });
+}
 
-    /* ───────────────────────────────────────────────────
-       MAGNETIC EFFECT (Buttons)
-       ─────────────────────────────────────────────────── */
-    if (window.innerWidth > 768) {
-        $$('.magnetic').forEach((el) => {
-            el.addEventListener('mousemove', (e) => {
-                const rect = el.getBoundingClientRect();
-                const x = e.clientX - rect.left - rect.width / 2;
-                const y = e.clientY - rect.top - rect.height / 2;
-                el.style.transform = `translate(${x * 0.2}px, ${y * 0.2}px)`;
-            });
+function initReveal() {
+    const elements = document.querySelectorAll('.section-heading, .stack-card, .about-card, .contact-card, .reveal');
+    elements.forEach((element) => element.classList.add('reveal'));
 
-            el.addEventListener('mouseleave', () => {
-                el.style.transform = 'translate(0, 0)';
-            });
-        });
-    }
-
-    /* ───────────────────────────────────────────────────
-       TYPEWRITER EFFECT
-       ─────────────────────────────────────────────────── */
-    const typewriterEl = $('#typewriter');
-    const titles = [
-        'Full-Stack Developer',
-        'AI Enthusiast',
-        'FiveM Developer',
-        'Creative Coder',
-        'Mobile App Developer',
-    ];
-    let titleIndex = 0;
-    let charIndex = 0;
-    let isDeleting = false;
-    let typeSpeed = 100;
-
-    function typeWriter() {
-        const current = titles[titleIndex];
-
-        if (isDeleting) {
-            typewriterEl.textContent = current.substring(0, charIndex - 1);
-            charIndex--;
-            typeSpeed = 50;
-        } else {
-            typewriterEl.textContent = current.substring(0, charIndex + 1);
-            charIndex++;
-            typeSpeed = 100;
-        }
-
-        if (!isDeleting && charIndex === current.length) {
-            typeSpeed = 2000; // Pause at end
-            isDeleting = true;
-        } else if (isDeleting && charIndex === 0) {
-            isDeleting = false;
-            titleIndex = (titleIndex + 1) % titles.length;
-            typeSpeed = 500; // Pause before new word
-        }
-
-        setTimeout(typeWriter, typeSpeed);
-    }
-
-    // Start after loader
-    setTimeout(typeWriter, 3000);
-
-    /* ───────────────────────────────────────────────────
-       TILT EFFECT ON STAT CARDS
-       ─────────────────────────────────────────────────── */
-    if (window.innerWidth > 768) {
-        $$('.stat-card').forEach((card) => {
-            card.addEventListener('mousemove', (e) => {
-                const rect = card.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-                const centerX = rect.width / 2;
-                const centerY = rect.height / 2;
-                const rotateX = ((y - centerY) / centerY) * -10;
-                const rotateY = ((x - centerX) / centerX) * 10;
-
-                card.style.transform = `perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-8px) scale(1.02)`;
-            });
-
-            card.addEventListener('mouseleave', () => {
-                card.style.transform = 'perspective(800px) rotateX(0) rotateY(0) translateY(0) scale(1)';
-            });
-        });
-    }
-
-    /* ───────────────────────────────────────────────────
-       3D KEYBOARD INTERACTIONS
-       ─────────────────────────────────────────────────── */
-    const skillData = {
-        lua:        { title: 'Lua',        desc: 'Extensive experience writing FiveM server scripts, game logic, and NUI resource bridges.', level: 90 },
-        java:       { title: 'Java',       desc: 'Backend services, Spring Boot APIs, and Android applications. Strong OOP foundation.', level: 85 },
-        python:     { title: 'Python',     desc: 'Automation scripts, AI/ML prototypes, Discord bots, and data processing pipelines.', level: 80 },
-        javascript: { title: 'JavaScript', desc: 'Full-stack web dev — frontend UIs, Node.js servers, DOM manipulation, and interactive experiences.', level: 85 },
-        html5:      { title: 'HTML5',      desc: 'Semantic markup, accessibility-first design, canvas, and custom web components.', level: 90 },
-        css3:       { title: 'CSS3',       desc: 'Advanced layouts, animations, 3D transforms, responsive design, and custom properties.', level: 88 },
-        csharp:     { title: 'C#',         desc: 'Unity game scripts, .NET utilities, and Windows desktop tooling.', level: 65 },
-        kotlin:     { title: 'Kotlin',     desc: 'Modern Android development with Jetpack Compose, coroutines, and MVVM architecture.', level: 70 },
-        spring:     { title: 'Spring',     desc: 'RESTful APIs with Spring Boot, security, JPA/Hibernate, and microservice patterns.', level: 75 },
-        react:      { title: 'React',      desc: 'Component-driven UIs, hooks, state management, and single-page applications.', level: 72 },
-        nodejs:     { title: 'Node.js',    desc: 'Express/Fastify servers, real-time sockets, REST APIs, and build tooling.', level: 78 },
-        docker:     { title: 'Docker',     desc: 'Containerised deployments, Docker Compose stacks, and CI/CD pipeline images.', level: 60 },
-        git:        { title: 'Git',        desc: 'Version control, branching strategies, pull requests, and collaborative workflows.', level: 85 },
-        android:    { title: 'Android',    desc: 'Native apps in Java & Kotlin, Material Design, and Play Store deployments.', level: 70 },
-        linux:      { title: 'Linux',      desc: 'Server administration, shell scripting, and development environment management.', level: 65 },
-        fivem:      { title: 'FiveM & Game Modding', desc: 'Custom game servers, Lua scripting, NUI interfaces, ox_lib, ESX & QBCore frameworks.', level: 95 },
-    };
-
-    function hexToRgb(hex) {
-        const r = parseInt(hex.slice(1, 3), 16);
-        const g = parseInt(hex.slice(3, 5), 16);
-        const b = parseInt(hex.slice(5, 7), 16);
-        return { r, g, b };
-    }
-
-    const keys = $$('.key');
-    const infoTitle = $('#skill-info-title');
-    const infoDesc  = $('#skill-info-desc');
-    const infoIcon  = $('#skill-info-icon');
-    const infoBarFill = $('#skill-info-bar-fill');
-    const infoLevel = $('#skill-info-level');
-
-    keys.forEach((key) => {
-        const color = key.dataset.color;
-        if (color) {
-            const { r, g, b } = hexToRgb(color);
-            key.style.setProperty('--key-r', r);
-            key.style.setProperty('--key-g', g);
-            key.style.setProperty('--key-b', b);
-        }
-
-        key.addEventListener('mouseenter', () => {
-            const skill = key.dataset.skill;
-            const data = skillData[skill];
-            if (!data) return;
-            const iconEl = key.querySelector('i');
-            if (infoIcon) infoIcon.innerHTML = iconEl ? iconEl.outerHTML : '';
-            if (infoTitle) infoTitle.textContent = data.title;
-            if (infoDesc)  infoDesc.textContent  = data.desc;
-            if (infoBarFill) infoBarFill.style.width = data.level + '%';
-            if (infoLevel) {
-                let lvl = 'Beginner';
-                if (data.level >= 85) lvl = 'Advanced';
-                else if (data.level >= 70) lvl = 'Proficient';
-                else if (data.level >= 50) lvl = 'Intermediate';
-                infoLevel.textContent = lvl + ' — ' + data.level + '%';
-            }
-            if (color) {
-                const panel = $('#skill-info-panel');
-                if (panel) panel.style.borderColor = color;
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                observer.unobserve(entry.target);
             }
         });
+    }, { threshold: 0.14 });
 
-        key.addEventListener('click', () => {
-            key.classList.add('pressed');
-            setTimeout(() => key.classList.remove('pressed'), 200);
+    elements.forEach((element) => observer.observe(element));
+}
+
+function initCardGlow() {
+    document.addEventListener('pointermove', (event) => {
+        document.querySelectorAll('.project-card').forEach((card) => {
+            const rect = card.getBoundingClientRect();
+            card.style.setProperty('--x', `${event.clientX - rect.left}px`);
+            card.style.setProperty('--y', `${event.clientY - rect.top}px`);
         });
-    });
+    }, { passive: true });
+}
 
-    /* ───────────────────────────────────────────────────
-       SAKURA PARTICLE GENERATOR
-       ─────────────────────────────────────────────────── */
-    const sakuraContainer = $('#sakura-container');
-    function spawnSakura() {
-        if (!sakuraContainer) return;
-        const petal = document.createElement('div');
-        petal.className = 'sakura-petal';
-        petal.style.left = Math.random() * 100 + 'vw';
-        petal.style.setProperty('--drift', (Math.random() * 160 - 80) + 'px');
-        const dur = 8 + Math.random() * 7;
-        petal.style.animationDuration = dur + 's';
-        petal.style.animationDelay = Math.random() * 2 + 's';
-        const size = 8 + Math.random() * 10;
-        petal.style.width = size + 'px';
-        petal.style.height = size + 'px';
-        sakuraContainer.appendChild(petal);
-        setTimeout(() => petal.remove(), (dur + 2) * 1000);
-    }
-
-    // Spawn petals periodically
-    setInterval(spawnSakura, 1200);
-    // Initial burst
-    for (let i = 0; i < 8; i++) setTimeout(spawnSakura, i * 300);
-
-    /* ───────────────────────────────────────────────────
-       PARALLAX MOUSE MOVEMENT ON HERO
-       ─────────────────────────────────────────────────── */
-    if (window.innerWidth > 768) {
-        const heroContent = $('.hero-content');
-
-        document.addEventListener('mousemove', (e) => {
-            const x = (e.clientX / window.innerWidth - 0.5) * 2;
-            const y = (e.clientY / window.innerHeight - 0.5) * 2;
-
-            if (heroContent) {
-                heroContent.style.transform = `translate(${x * 10}px, ${y * 8}px)`;
-            }
-        });
-    }
-
-    /* ───────────────────────────────────────────────────
-       INTERSECTION OBSERVER FOR REVEALS
-       (Fallback if GSAP scroll trigger didn't apply)
-       ─────────────────────────────────────────────────── */
-    const observer = new IntersectionObserver(
-        (entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('revealed');
-                }
-            });
-        },
-        { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
-    );
-
-    $$('[data-reveal]').forEach((el) => observer.observe(el));
-})();
+renderProjects();
+initNav();
+initReveal();
+initCardGlow();
