@@ -9,12 +9,34 @@ const iconPaths = {
 
 const projects = [
     {
-        title: 'FiveM Scripts & UI',
-        description: 'Recursos, paneles y reskins para servidores FiveM con interfaces claras y documentación de soporte.',
-        tech: ['Lua', 'FiveM', 'HTML/CSS'],
-        status: 'Gaming tools',
-        repo: 'https://github.com/Pausiar/ps-anticheat-dashboard',
-        icon: 'game'
+        title: 'Openfy',
+        description: 'Línea de proyecto open-source vinculada al ecosistema de Pausiar; ficha pública preparada para destacar alcance y repositorio cuando esté disponible.',
+        tech: ['Open-source', 'Web', 'Product'],
+        status: 'Proyecto destacado',
+        icon: 'web'
+    },
+    {
+        title: 'Realtime Translate',
+        description: 'App Android para traducción de voz en tiempo real con enfoque mobile y procesamiento aplicado.',
+        tech: ['Kotlin', 'Android', 'IA aplicada'],
+        status: 'Android app',
+        repo: 'https://github.com/Pausiar/realtime-translate',
+        icon: 'mobile'
+    },
+    {
+        title: 'Fit Track Android',
+        description: 'Proyecto Android de seguimiento personal presentado como app móvil dentro del portfolio técnico.',
+        tech: ['Kotlin', 'Android', 'Mobile UI'],
+        status: 'Android app',
+        icon: 'mobile'
+    },
+    {
+        title: 'JARVIS Docs',
+        description: 'Base técnica para un asistente tipo JARVIS centrado en comandos, automatización e IA aplicada.',
+        tech: ['Docs', 'IA aplicada', 'Automation'],
+        status: 'Documentation',
+        repo: 'https://github.com/Pausiar/JARVIS',
+        icon: 'ai'
     },
     {
         title: 'Premium Scripting Docs',
@@ -24,6 +46,14 @@ const projects = [
         repo: 'https://github.com/Pausiar/ps_scripts-documentation',
         demo: 'https://pausiar.github.io/ps_scripts-documentation/',
         icon: 'docs'
+    },
+    {
+        title: 'FiveM Scripts & UI',
+        description: 'Recursos, paneles y reskins para servidores FiveM con interfaces claras y documentación de soporte.',
+        tech: ['Lua', 'FiveM', 'HTML/CSS'],
+        status: 'Gaming tools',
+        repo: 'https://github.com/Pausiar/ps-anticheat-dashboard',
+        icon: 'game'
     },
     {
         title: 'School Bus Live Tracker',
@@ -40,22 +70,6 @@ const projects = [
         status: 'Automation tool',
         repo: 'https://github.com/Pausiar/TwitchDowloader',
         icon: 'automation'
-    },
-    {
-        title: 'Realtime Translate',
-        description: 'App Android para traducción de voz en tiempo real con enfoque mobile y procesamiento aplicado.',
-        tech: ['Kotlin', 'Android', 'ML'],
-        status: 'Android app',
-        repo: 'https://github.com/Pausiar/realtime-translate',
-        icon: 'mobile'
-    },
-    {
-        title: 'JARVIS Docs',
-        description: 'Base técnica para un asistente tipo JARVIS centrado en comandos, automatización e IA aplicada.',
-        tech: ['Docs', 'AI', 'Automation'],
-        status: 'Documentation',
-        repo: 'https://github.com/Pausiar/JARVIS',
-        icon: 'ai'
     }
 ];
 
@@ -70,23 +84,29 @@ function svgIcon(name) {
 function renderProjects() {
     if (!projectsGrid) return;
 
-    projectsGrid.innerHTML = projects.map((project) => `
-        <article class="project-card reveal">
-            <div class="project-top">
-                <div class="project-icon">${svgIcon(project.icon)}</div>
-                <div class="project-links">
-                    <a href="${project.repo}" target="_blank" rel="noopener noreferrer" aria-label="Repositorio de ${project.title}">
-                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5a12 12 0 0 0-3.79 23.39c.6.11.82-.26.82-.58v-2.04c-3.34.73-4.04-1.42-4.04-1.42-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.74.08-.74 1.21.09 1.85 1.25 1.85 1.25 1.07 1.84 2.81 1.31 3.5 1 .11-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.53.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.29-1.55 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.49 5.93.43.37.81 1.1.81 2.22v3.29c0 .32.22.7.83.58A12 12 0 0 0 12 .5Z"/></svg>
-                    </a>
-                    ${project.demo ? `<a href="${project.demo}" target="_blank" rel="noopener noreferrer" aria-label="Demo de ${project.title}">${svgIcon('web')}</a>` : ''}
+    projectsGrid.innerHTML = projects.map((project) => {
+        const links = project.repo
+            ? `<a href="${project.repo}" target="_blank" rel="noopener noreferrer" aria-label="Repositorio de ${project.title}">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5a12 12 0 0 0-3.79 23.39c.6.11.82-.26.82-.58v-2.04c-3.34.73-4.04-1.42-4.04-1.42-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.74.08-.74 1.21.09 1.85 1.25 1.85 1.25 1.07 1.84 2.81 1.31 3.5 1 .11-.78.42-1.31.76-1.61-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.53.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.29-1.55 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.49 5.93.43.37.81 1.1.81 2.22v3.29c0 .32.22.7.83.58A12 12 0 0 0 12 .5Z"/></svg>
+                </a>`
+            : '<span class="project-link-muted">Pendiente</span>';
+
+        return `
+            <article class="project-card reveal">
+                <div class="project-top">
+                    <div class="project-icon">${svgIcon(project.icon)}</div>
+                    <div class="project-links">
+                        ${links}
+                        ${project.demo ? `<a href="${project.demo}" target="_blank" rel="noopener noreferrer" aria-label="Demo de ${project.title}">${svgIcon('web')}</a>` : ''}
+                    </div>
                 </div>
-            </div>
-            <h3>${project.title}</h3>
-            <p>${project.description}</p>
-            <div class="project-tech">${project.tech.map((tech) => `<span>${tech}</span>`).join('')}</div>
-            <span class="project-status">${project.status}</span>
-        </article>
-    `).join('');
+                <h3>${project.title}</h3>
+                <p>${project.description}</p>
+                <div class="project-tech">${project.tech.map((tech) => `<span>${tech}</span>`).join('')}</div>
+                <span class="project-status">${project.status}</span>
+            </article>
+        `;
+    }).join('');
 }
 
 function initNav() {
@@ -108,8 +128,13 @@ function initNav() {
 }
 
 function initReveal() {
-    const elements = document.querySelectorAll('.section-heading, .service-item, .stack-card, .about-card, .contact-card, .reveal');
+    const elements = document.querySelectorAll('.section-heading, .service-item, .stack-card, .about-card, .contact-card, .legal-card, .reveal');
     elements.forEach((element) => element.classList.add('reveal'));
+
+    if (!('IntersectionObserver' in window)) {
+        elements.forEach((element) => element.classList.add('is-visible'));
+        return;
+    }
 
     const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
