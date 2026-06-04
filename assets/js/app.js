@@ -9,12 +9,37 @@ const iconPaths = {
 
 const projects = [
     {
-        title: 'Openfy',
-        description: 'Proyecto open-source orientado a producto digital y experimentación con experiencias web modernas.',
-        tech: ['Open-source', 'Web', 'Product'],
-        status: 'Exploración activa',
-        repo: 'https://github.com/Pausiar/Openfy',
+        title: 'FiveM Scripts & UI',
+        description: 'Recursos, paneles y reskins para servidores FiveM con interfaces claras y documentación de soporte.',
+        tech: ['Lua', 'FiveM', 'HTML/CSS'],
+        status: 'Gaming tools',
+        repo: 'https://github.com/Pausiar/ps-anticheat-dashboard',
+        icon: 'game'
+    },
+    {
+        title: 'Premium Scripting Docs',
+        description: 'Documentación pública para scripts premium, pensada para instalación rápida, soporte y consulta.',
+        tech: ['Docs', 'HTML', 'CSS'],
+        status: 'GitHub Pages',
+        repo: 'https://github.com/Pausiar/ps_scripts-documentation',
+        demo: 'https://pausiar.github.io/ps_scripts-documentation/',
+        icon: 'docs'
+    },
+    {
+        title: 'School Bus Live Tracker',
+        description: 'Proyecto web de tracking en tiempo real para transporte escolar con enfoque práctico y datos vivos.',
+        tech: ['JavaScript', 'Node.js', 'Real-time'],
+        status: 'Real-time web',
+        repo: 'https://github.com/Pausiar/proyecto-final-school-bus',
         icon: 'web'
+    },
+    {
+        title: 'Twitch Downloader',
+        description: 'Herramienta de automatización para descargas y flujos alrededor de contenido y APIs de Twitch.',
+        tech: ['Python', 'API', 'Automation'],
+        status: 'Automation tool',
+        repo: 'https://github.com/Pausiar/TwitchDowloader',
+        icon: 'automation'
     },
     {
         title: 'Realtime Translate',
@@ -25,53 +50,12 @@ const projects = [
         icon: 'mobile'
     },
     {
-        title: 'Fit Track Android',
-        description: 'Aplicación Android de seguimiento fitness para registrar progreso y hábitos de entrenamiento.',
-        tech: ['Android', 'Kotlin', 'Mobile'],
-        status: 'Mobile product',
-        repo: 'https://github.com/Pausiar/Fit-Track-Android',
-        icon: 'mobile'
-    },
-    {
         title: 'JARVIS Docs',
-        description: 'Documentación y base técnica para asistente tipo JARVIS centrado en IA, comandos y automatización.',
+        description: 'Base técnica para un asistente tipo JARVIS centrado en comandos, automatización e IA aplicada.',
         tech: ['Docs', 'AI', 'Automation'],
-        status: 'Documentación',
+        status: 'Documentation',
         repo: 'https://github.com/Pausiar/JARVIS',
         icon: 'ai'
-    },
-    {
-        title: 'Premium Scripting',
-        description: 'Documentación pública para scripts premium, con foco en claridad, instalación y soporte técnico.',
-        tech: ['HTML', 'CSS', 'Docs'],
-        status: 'GitHub Pages',
-        repo: 'https://github.com/Pausiar/ps_scripts-documentation',
-        demo: 'https://pausiar.github.io/ps_scripts-documentation/',
-        icon: 'docs'
-    },
-    {
-        title: 'Twitch Downloader',
-        description: 'Herramienta de automatización para descargas y flujos alrededor de contenido de Twitch.',
-        tech: ['Python', 'API', 'Automation'],
-        status: 'Automation tool',
-        repo: 'https://github.com/Pausiar/TwitchDowloader',
-        icon: 'automation'
-    },
-    {
-        title: 'School Bus Live Tracker',
-        description: 'Sistema de tracking en tiempo real para transporte escolar con JavaScript y Node.js.',
-        tech: ['JavaScript', 'Node.js', 'Real-time'],
-        status: 'Real-time web',
-        repo: 'https://github.com/Pausiar/proyecto-final-school-bus',
-        icon: 'web'
-    },
-    {
-        title: 'FiveM Scripts & UI',
-        description: 'Colección de recursos, scripts y reskins para servidores FiveM con interfaces personalizadas.',
-        tech: ['Lua', 'FiveM', 'HTML/CSS'],
-        status: 'Gaming tools',
-        repo: 'https://github.com/Pausiar/ps-anticheat-dashboard',
-        icon: 'game'
     }
 ];
 
@@ -124,7 +108,7 @@ function initNav() {
 }
 
 function initReveal() {
-    const elements = document.querySelectorAll('.section-heading, .stack-card, .about-card, .contact-card, .reveal');
+    const elements = document.querySelectorAll('.section-heading, .service-item, .stack-card, .about-card, .contact-card, .reveal');
     elements.forEach((element) => element.classList.add('reveal'));
 
     const observer = new IntersectionObserver((entries) => {
@@ -139,17 +123,6 @@ function initReveal() {
     elements.forEach((element) => observer.observe(element));
 }
 
-function initCardGlow() {
-    document.addEventListener('pointermove', (event) => {
-        document.querySelectorAll('.project-card').forEach((card) => {
-            const rect = card.getBoundingClientRect();
-            card.style.setProperty('--x', `${event.clientX - rect.left}px`);
-            card.style.setProperty('--y', `${event.clientY - rect.top}px`);
-        });
-    }, { passive: true });
-}
-
 renderProjects();
 initNav();
 initReveal();
-initCardGlow();
