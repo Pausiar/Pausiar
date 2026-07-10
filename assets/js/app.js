@@ -9,67 +9,93 @@ const iconPaths = {
 
 const projects = [
     {
+        title: 'rep-servicios-procesos',
+        description: 'Repositorio JavaScript reciente para prácticas y tooling de servicios/procesos, incorporado al snapshot público más actual.',
+        tech: ['JavaScript', 'Procesos', 'Tooling'],
+        status: 'Actualizado Jun 2026',
+        repo: 'https://github.com/Pausiar/rep-servicios-procesos',
+        icon: 'automation'
+    },
+    {
+        title: 'ADA-rep',
+        description: 'Trabajo JavaScript de análisis, diseño y algoritmos, incluido entre los repositorios recientes del perfil.',
+        tech: ['JavaScript', 'Algorithms', 'Academic'],
+        status: 'Actualizado Jun 2026',
+        repo: 'https://github.com/Pausiar/ADA-rep',
+        icon: 'docs'
+    },
+    {
+        title: 'Fit Track Android',
+        description: 'App Android de seguimiento personal con foco mobile, experiencia práctica y evolución dentro del portfolio técnico.',
+        tech: ['Kotlin', 'Android', 'Mobile UI'],
+        status: 'Actualizado Jun 2026',
+        repo: 'https://github.com/Pausiar/fit-track-android',
+        icon: 'mobile'
+    },
+    {
         title: 'Openfy',
-        description: 'Línea de proyecto open-source vinculada al ecosistema de Pausiar; ficha pública preparada para destacar alcance y repositorio cuando esté disponible.',
-        tech: ['Open-source', 'Web', 'Product'],
-        status: 'Proyecto destacado',
-        icon: 'web'
+        description: 'Proyecto Kotlin destacado dentro del ecosistema de Pausiar, orientado a producto y desarrollo móvil/open-source.',
+        tech: ['Kotlin', 'Open-source', 'Product'],
+        status: 'Actualizado Jun 2026',
+        repo: 'https://github.com/Pausiar/openfy',
+        icon: 'mobile'
     },
     {
         title: 'Realtime Translate',
-        description: 'App Android para traducción de voz en tiempo real con enfoque mobile y procesamiento aplicado.',
+        description: 'App Android para traducción de voz en tiempo real; el repositorio público la describe como traducción de polaco a español.',
         tech: ['Kotlin', 'Android', 'IA aplicada'],
-        status: 'Android app',
+        status: 'Actualizado Jun 2026',
         repo: 'https://github.com/Pausiar/realtime-translate',
         icon: 'mobile'
     },
     {
-        title: 'Fit Track Android',
-        description: 'Proyecto Android de seguimiento personal presentado como app móvil dentro del portfolio técnico.',
-        tech: ['Kotlin', 'Android', 'Mobile UI'],
-        status: 'Android app',
+        title: 'correturnos-pamesa',
+        description: 'Aplicación Kotlin reciente orientada a gestión operativa de turnos y procesos, incorporada al portfolio 2026.',
+        tech: ['Kotlin', 'Android', 'Operations'],
+        status: 'Actualizado Jun 2026',
+        repo: 'https://github.com/Pausiar/correturnos-pamesa',
         icon: 'mobile'
-    },
-    {
-        title: 'JARVIS Docs',
-        description: 'Base técnica para un asistente tipo JARVIS centrado en comandos, automatización e IA aplicada.',
-        tech: ['Docs', 'IA aplicada', 'Automation'],
-        status: 'Documentation',
-        repo: 'https://github.com/Pausiar/JARVIS',
-        icon: 'ai'
     },
     {
         title: 'Premium Scripting Docs',
         description: 'Documentación pública para scripts premium, pensada para instalación rápida, soporte y consulta.',
         tech: ['Docs', 'HTML', 'CSS'],
-        status: 'GitHub Pages',
+        status: '2 stars · GitHub Pages',
         repo: 'https://github.com/Pausiar/ps_scripts-documentation',
         demo: 'https://pausiar.github.io/ps_scripts-documentation/',
         icon: 'docs'
     },
     {
-        title: 'FiveM Scripts & UI',
-        description: 'Recursos, paneles y reskins para servidores FiveM con interfaces claras y documentación de soporte.',
-        tech: ['Lua', 'FiveM', 'HTML/CSS'],
-        status: 'Gaming tools',
-        repo: 'https://github.com/Pausiar/ps-anticheat-dashboard',
-        icon: 'game'
-    },
-    {
         title: 'School Bus Live Tracker',
-        description: 'Proyecto web de tracking en tiempo real para transporte escolar con enfoque práctico y datos vivos.',
-        tech: ['JavaScript', 'Node.js', 'Real-time'],
-        status: 'Real-time web',
+        description: 'Proyecto Java de tracking en tiempo real para transporte escolar con enfoque práctico y datos vivos.',
+        tech: ['Java', 'Real-time', 'Tracking'],
+        status: '1 star',
         repo: 'https://github.com/Pausiar/proyecto-final-school-bus',
         icon: 'web'
     },
     {
         title: 'Twitch Downloader',
-        description: 'Herramienta de automatización para descargas y flujos alrededor de contenido y APIs de Twitch.',
-        tech: ['Python', 'API', 'Automation'],
+        description: 'Herramienta para descargar streams completos de Twitch y conservarlos, editarlos o integrarlos en otros flujos.',
+        tech: ['HTML', 'Twitch', 'Automation'],
         status: 'Automation tool',
         repo: 'https://github.com/Pausiar/TwitchDowloader',
         icon: 'automation'
+    },
+    {
+        title: 'Check Space',
+        description: 'Utilidad para encontrar qué archivos ocupan más almacenamiento y evitar quedarse sin espacio.',
+        tech: ['JavaScript', 'Storage', 'Utility'],
+        status: 'Developer tool',
+        repo: 'https://github.com/Pausiar/check-space',
+        icon: 'automation'
+    },
+    {
+        title: 'Talleres Mañes Web',
+        description: 'Sitio web oficial para Talleres Mañes, ejemplo de trabajo web real y publicado dentro del perfil.',
+        tech: ['CSS', 'Web', 'Client site'],
+        status: '1 star',
+        repo: 'https://github.com/Pausiar/talleres-manes-web',
+        icon: 'web'
     }
 ];
 

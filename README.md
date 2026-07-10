@@ -1,6 +1,6 @@
 # Pausiar
 
-Portfolio personal de Pausiar publicado con GitHub Pages en `https://pausiar.github.io/`.
+Portfolio personal de Pausiar publicado con GitHub Pages en `https://pausiar.github.io/`, actualizado con el snapshot público de GitHub de julio de 2026.
 
 ## Web
 
@@ -8,9 +8,13 @@ Este repositorio sirve una web estática desde la raíz del repo:
 
 - `index.html`: portfolio principal.
 - `assets/css/style.css`: estilos del portfolio y páginas legales.
-- `assets/js/app.js`: navegación responsive, animaciones y render de proyectos.
+- `assets/js/app.js`: navegación responsive, animaciones y render de proyectos actualizados desde el perfil público de GitHub.
 - `legal/`: privacidad, cookies, aviso legal y términos de uso.
 - `robots.txt` y `sitemap.xml`: SEO básico para GitHub Pages.
+
+## Contenido actualizado
+
+La portada resume 80 repositorios públicos, 9 estrellas, proyectos recientes hasta junio de 2026 y una selección de repos como `rep-servicios-procesos`, `ADA-rep`, `fit-track-android`, `openfy`, `realtime-translate`, `correturnos-pamesa`, `ps_scripts-documentation`, `proyecto-final-school-bus`, `TwitchDowloader`, `check-space` y `talleres-manes-web`.
 
 ## Desarrollo local
 
